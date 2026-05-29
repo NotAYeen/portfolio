@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton Flores - Portfolio // PORTAL</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="wireframe-container">
+        
+        <!-- Ticker Top -->
+        <div class="ticker-bar top">
+            <div class="ticker-content" id="ticker-1">
+                <!-- JS will duplicate content for seamless scroll -->
+            </div>
+        </div>
+
+        <!-- Huge Title -->
+        <div class="huge-title-section">
+            <h1 class="main-title" id="anton-title">
+                <span class="anton-letter" data-letter="A" style="--hover-color: var(--c-teal);">A</span>
+                <span class="anton-letter" data-letter="N" style="--hover-color: var(--c-coral);">N</span>
+                <span class="anton-letter" data-letter="T" style="--hover-color: #E2B714;">T</span>
+                <span class="anton-letter" data-letter="O" style="--hover-color: #809BCE;">O</span>
+                <span class="anton-letter" data-letter="N" style="--hover-color: #B8E0D2;">N</span>
+            </h1>
+            <div class="side-badge">
+                <span>THE</span>
+                <span>SYSTEM</span>
+                <span>PORTAL</span>
+            </div>
+        </div>
+
+        <!-- Ticker Mid -->
+        <div class="ticker-bar mid">
+            <div class="ticker-content" id="ticker-2">
+                <!-- JS will duplicate content for seamless scroll -->
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="blueprint-grid">
+            
+            <!-- Bio / Profile panel -->
+            <div class="panel profile-panel">
+                <div class="panel-header">
+                    <span>SYSTEM 001</span>
+                    <span><i class="ph-bold ph-sun"></i> ポータル</span>
+                    <span id="sys-clock">00:00:00</span>
+                </div>
+                <div class="panel-body profile-body">
+                    <div class="concentric-triangle">
+                        <svg viewBox="0 0 100 100">
+                          <polygon points="50,5 95,90 5,90"/>
+                          <polygon points="50,17 83,82 17,82"/>
+                          <polygon points="50,29 71,74 29,74"/>
+                          <polygon points="50,41 59,66 41,66"/>
+                          <polygon points="50,53 53,58 47,58"/>
+                        </svg>
+                    </div>
+                    <div class="profile-info">
+                        <h2 class="accent-coral">INITIATE SEQUENCE</h2>
+                        <p class="arrow-text">>>>>>>>>>>>>>>>>>>>>></p>
+                        <p class="desc-text">
+                            Ingeniero de Sistemas Computacionales.<br><br>
+                            Especializado en la automatización de procesos, arquitectura de software móvil y resiliencia de infraestructura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image panel -->
+            <div class="panel image-panel">
+                <img src="assets/yo1.png" alt="Anton Profile" onerror="this.src='https://via.placeholder.com/600x800/3E6868/C1AB85?text=PROFILE_IMG'">
+            </div>
+
+            <!-- Projects -->
+            <div class="panel list-panel">
+                <div class="panel-header">
+                    <span>REPOSITORY</span>
+                    <span><i class="ph-bold ph-folder"></i> DATA: LARGE</span>
+                </div>
+                <div class="panel-body" style="flex-direction: column;" id="projects-container">
+                    <!-- populated by JS -->
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="panel list-panel">
+                <div class="panel-header">
+                    <span>INFRASTRUCTURE</span>
+                    <span><i class="ph-bold ph-hard-drives"></i> ACCESS: ROOT</span>
+                </div>
+                <div class="panel-body" style="flex-direction: column;" id="services-container">
+                    <!-- populated by JS -->
+                </div>
+            </div>
+
+        </div>
+
+        <a href="" target="_blank" class="panel uplink-panel">
+            <h2 class="accent-teal">ESTABLECER ENLACE [ UPLINK ]</h2>
+            <i class="ph-bold ph-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-content" class="modal-content">
+            <div id="modal-body" class="modal-body"></div>
+            <button id="modal-close" class="modal-close"><i class="ph-bold ph-x"></i></button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
