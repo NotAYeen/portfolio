@@ -22,9 +22,7 @@ body {
 }
 
 .noise-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-    opacity: 0.08; pointer-events: none; z-index: 9999;
+    display: none;
 }
 
 .wireframe-container {
@@ -137,13 +135,13 @@ body {
 .arrow-text { letter-spacing: 4px; font-weight: bold; margin-bottom: 1rem; color: var(--c-teal);}
 .desc-text { font-size: 1rem; line-height: 1.6; max-width: 80%; margin: 0 auto; font-weight: bold;}
 
-.image-panel { background: var(--c-teal); display: flex; justify-content: center; align-items: flex-end; overflow: hidden; min-height: 400px;}
+.image-panel { background: var(--c-teal); display: flex; justify-content: center; align-items: center; overflow: hidden; min-height: 400px;}
 .image-panel img { 
     width: 75%; 
     height: auto; 
-    align-self: flex-end; 
+    align-self: center; 
     object-fit: contain; 
-    object-position: bottom; 
+    object-position: center; 
     filter: contrast(120%) grayscale(50%); 
     mix-blend-mode: multiply; 
 }
@@ -181,10 +179,7 @@ body {
 .uplink-panel:hover .accent-teal { color: var(--bg-main); }
 .uplink-panel i { font-size: 3rem; }
 
-@media (max-width: 900px) {
-    .blueprint-grid { grid-template-columns: 1fr; }
-    .main-title { font-size: 18vw; }
-}
+
 
 /* Modal Updates (Jigsaw Layout) */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10,10,10,0.95); backdrop-filter: blur(15px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; padding: 2rem; }
@@ -233,11 +228,4 @@ body {
     background: var(--c-primary);
     color: var(--bg-main);
 }
-@media (max-width: 768px) {
-    .jigsaw-grid { grid-template-columns: 1fr; }
-    .jigsaw-red { border-radius: 40px 40px 10px 10px; }
-    .jigsaw-blue { border-radius: 10px 10px 40px 40px; }
-    .jigsaw-beige { border-radius: 40px; }
-    .modal-close { transform: translate(0, 0); top: 10px; right: 10px; }
-    .modal-close:hover { transform: scale(1.1); }
-}
+

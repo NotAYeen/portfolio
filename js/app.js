@@ -115,12 +115,38 @@ document.addEventListener('DOMContentLoaded', () => {
     initAntonHover();
 });
 
-function initTickers() {
-    const text1 = "<span>BOOT SEQUENCE INITIATED</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>GHOSTLINE CORE</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>PORTAL ENTRANCE</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>システム開始</span> <span><i class='ph-fill ph-squares-four'></i></span> ";
-    const text2 = "<span>CAPACITY: 100%</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>INTERNAL-559</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>SEC 26.02</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>実験室</span> <span><i class='ph-fill ph-checkerboard'></i></span> ";
+async function initTickers() {
+    const dateOpts = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    const dateStr = new Date().toLocaleDateString('en-US', dateOpts).toUpperCase();
     
-    document.getElementById('ticker-1').innerHTML = text1.repeat(4);
-    document.getElementById('ticker-2').innerHTML = text2.repeat(4);
+    // Initial render
+    renderTickers(dateStr, "FETCHING LOC...", "FETCHING WX...");
+    
+    try {
+        const ipRes = await fetch('https://ipinfo.io/json');
+        const ipData = await ipRes.json();
+        const [lat, lon] = ipData.loc.split(',');
+        
+        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+        const weatherData = await weatherRes.json();
+        
+        const locStr = `${ipData.city || 'UNKNOWN'}, ${ipData.country || 'SYS'}`.toUpperCase();
+        const wxStr = `${weatherData.current_weather.temperature}°C // WIND ${weatherData.current_weather.windspeed}KM/H`;
+        
+        renderTickers(dateStr, locStr, wxStr);
+    } catch (e) {
+        renderTickers(dateStr, "LOC: ENCRYPTED", "WX: UNAVAILABLE");
+    }
+}
+
+function renderTickers(dateStr, locStr, wxStr) {
+    const text1 = `<span>BOOT SEQUENCE INITIATED</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>LOC: ${locStr}</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>${dateStr}</span> <span><i class='ph-fill ph-squares-four'></i></span> <span>システム開始</span> <span><i class='ph-fill ph-squares-four'></i></span> `;
+    const text2 = `<span>CAPACITY: 100%</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>WX: ${wxStr}</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>GHOSTLINE CORE</span> <span><i class='ph-fill ph-checkerboard'></i></span> <span>実験室</span> <span><i class='ph-fill ph-checkerboard'></i></span> `;
+    
+    const el1 = document.getElementById('ticker-1');
+    const el2 = document.getElementById('ticker-2');
+    if (el1) el1.innerHTML = text1.repeat(4);
+    if (el2) el2.innerHTML = text2.repeat(4);
 }
 
 function startClock() {
