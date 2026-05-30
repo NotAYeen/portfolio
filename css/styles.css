@@ -187,11 +187,14 @@ body {
 .image-panel img { 
     width: 75%; 
     height: auto; 
+    aspect-ratio: 600 / 800;
     object-fit: contain; 
     object-position: bottom; 
     filter: contrast(120%) grayscale(50%); 
     mix-blend-mode: multiply; 
 }
+
+
 
 /* Items */
 .blueprint-item {
@@ -274,5 +277,48 @@ body {
 .jigsaw-beige:hover {
     background: var(--c-primary);
     color: var(--bg-main);
+}
+
+/* Modal Refactor */
+.modal-title { font-family: var(--font-heading); font-weight: 900; font-size: 3rem; line-height: 1.1; word-wrap: break-word; }
+.modal-subtitle { font-family: var(--font-heading); font-weight: 900; font-size: 1.5rem; margin-bottom: 1rem; }
+.modal-tags { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-weight: bold; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px dashed currentColor; }
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .blueprint-grid {
+        grid-template-columns: 1fr;
+    }
+    .huge-title-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    .main-title {
+        font-size: 15vw;
+    }
+    .side-badge {
+        width: 100%;
+        max-width: 300px;
+    }
+    .image-panel {
+        min-height: 300px;
+    }
+    .jigsaw-grid {
+        grid-template-columns: 1fr;
+    }
+    .jigsaw-panel {
+        padding: 1.5rem;
+    }
+    .jigsaw-red, .jigsaw-blue, .jigsaw-beige {
+        grid-column: 1 / -1;
+        margin: 0;
+        margin-bottom: -2px;
+        border-radius: 0;
+    }
+    .jigsaw-red { border-radius: 20px 20px 0 0; padding-right: 1.5rem; }
+    .jigsaw-beige { border-radius: 0 0 20px 20px; }
+    .modal-title { font-size: 2rem; }
+    .modal-tags { flex-direction: column; gap: 0.5rem; }
 }
 

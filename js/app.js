@@ -256,22 +256,22 @@ function initModals() {
             body.innerHTML = `
                 <div class="jigsaw-grid">
                     <div class="jigsaw-panel jigsaw-red">
-                        <h2 style="font-family: var(--font-heading); font-weight:900; font-size: 3rem; line-height: 1.1;">${proj.nombre}</h2>
-                        <div style="display:flex; justify-content:space-between; font-weight:bold; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px dashed currentColor;">
+                        <h2 class="modal-title">${proj.nombre}</h2>
+                        <div class="modal-tags">
                             <span>${proj.categoria}</span>
                             <span>${proj.estado}</span>
                             <span>${proj.entornos.join(', ')}</span>
                         </div>
                     </div>
                     <div class="jigsaw-panel jigsaw-blue">
-                        <h3 style="font-family: var(--font-heading); font-weight:900; font-size: 1.5rem; margin-bottom: 1rem;">// TECH_STACK</h3>
+                        <h3 class="modal-subtitle">// TECH_STACK</h3>
                         <div style="font-weight: bold; margin-bottom: 2rem;">${proj.tecnologias.join(' / ')}</div>
                         <div style="font-weight: bold; font-size: 1rem; line-height: 1.6; opacity: 0.9;">
                             ${proj.descripcion}
                         </div>
                     </div>
                     <div class="jigsaw-panel jigsaw-beige">
-                        <h3 style="font-family: var(--font-heading); font-weight:900; font-size: 1.5rem; margin-bottom: 1rem;">// FEATURES</h3>
+                        <h3 class="modal-subtitle">// FEATURES</h3>
                         <ul style="list-style:none; display:flex; flex-direction:column; gap:1rem;">
                             ${proj.caracteristicas_tecnicas.map(f => `<li style="padding-left:1.5rem; position:relative; font-weight:bold; line-height: 1.4;"><span style="position:absolute; left:0; font-weight:900;">></span>${f}</li>`).join('')}
                         </ul>
@@ -283,8 +283,8 @@ function initModals() {
             body.innerHTML = `
                 <div class="jigsaw-grid">
                     <div class="jigsaw-panel jigsaw-red">
-                        <h2 style="font-family: var(--font-heading); font-weight:900; font-size: 3rem; line-height: 1.1;"><i class="ph-bold ${srv.icono}"></i> ${srv.area}</h2>
-                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px dashed currentColor; font-weight:bold;">
+                        <h2 class="modal-title"><i class="ph-bold ${srv.icono}"></i> ${srv.area}</h2>
+                        <div class="modal-tags">
                             <span>INFRASTRUCTURE PROTOCOL // ROOT ACCESS</span>
                         </div>
                     </div>
