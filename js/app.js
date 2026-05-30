@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initModals();
     initAntonHover();
+    initBadgeHover();
+    initTriangleSpin();
 });
 
 async function initTickers() {
@@ -307,5 +309,69 @@ function initModals() {
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) closeModal();
+    });
+}
+
+function initBadgeHover() {
+    const badge = document.getElementById('side-badge');
+    if (!badge) return;
+    const colorLayer = badge.querySelector('.badge-color');
+    badge.addEventListener('mousemove', e => {
+        const rect = badge.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        colorLayer.style.setProperty('--x', `${x}px`);
+        colorLayer.style.setProperty('--y', `${y}px`);
+        colorLayer.style.setProperty('--r', '150px');
+    });
+    badge.addEventListener('mouseleave', () => {
+        colorLayer.style.setProperty('--r', '0px');
+    });
+}
+
+function initTriangleSpin() {
+    const triangle = document.querySelector('.concentric-triangle');
+    if (!triangle) return;
+    const polygons = triangle.querySelectorAll('polygon');
+    
+    let isHovered = false;
+    let angles = [0, 0, 0, 0, 0];
+    let speeds = [1, -1, 1, -1, 1]; 
+    let reqId;
+    let lastTime;
+
+    triangle.addEventListener('mouseenter', () => {
+        isHovered = true;
+        cancelAnimationFrame(reqId);
+        
+        polygons.forEach(p => p.style.transition = 'stroke 0.4s ease');
+        
+        lastTime = performance.now();
+        function loop(time) {
+            let dt = time - lastTime;
+            lastTime = time;
+            
+            if (dt > 100) dt = 16;
+            
+            for(let i=0; i<5; i++) {
+                angles[i] += speeds[i] * 0.12 * dt;
+                polygons[i].style.transform = `rotate(${angles[i]}deg)`;
+            }
+            if(isHovered) reqId = requestAnimationFrame(loop);
+        }
+        reqId = requestAnimationFrame(loop);
+    });
+
+    triangle.addEventListener('mouseleave', () => {
+        isHovered = false;
+        cancelAnimationFrame(reqId);
+        
+        for(let i=0; i<5; i++) {
+            let current = angles[i];
+            let target = Math.round(current / 360) * 360;
+            angles[i] = target;
+            polygons[i].style.transition = 'stroke 0.4s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+            polygons[i].style.transform = `rotate(${target}deg)`;
+        }
     });
 }
