@@ -129,5 +129,76 @@
         </div>
     </div>
 
+    <!-- Gamepad Tester Easter Egg -->
+    <div id="gamepad-tester" class="gamepad-tester hidden">
+        <div class="gp-header">
+            <h2 class="accent-coral"><i class="ph-bold ph-game-controller"></i> HARDWARE OVERRIDE // GAMEPAD_DIAGNOSTICS</h2>
+            <div id="gp-id" class="gp-id-text">AWAITING CONNECTION... PRESS ANY BUTTON</div>
+            <button id="gp-exit" class="gp-exit-btn">[ EXIT OVERRIDE ]</button>
+        </div>
+        <div class="gp-body">
+            <div class="gp-visual">
+                <div class="gp-chassis">
+                    <!-- Bumpers & Triggers -->
+                    <div class="gp-top-row">
+                        <div class="gp-trigger-group">
+                            <div class="gp-trigger" id="trig-l"><div class="gp-trigger-fill" id="trig-fill-l"></div></div>
+                            <div class="gp-btn gp-bumper" id="btn-4">LB <span>L1</span></div>
+                        </div>
+                        <div class="gp-trigger-group">
+                            <div class="gp-trigger" id="trig-r"><div class="gp-trigger-fill" id="trig-fill-r"></div></div>
+                            <div class="gp-btn gp-bumper" id="btn-5">RB <span>R1</span></div>
+                        </div>
+                    </div>
+                    <!-- Main Face -->
+                    <div class="gp-main-face">
+                        <!-- D-Pad -->
+                        <div class="gp-dpad">
+                            <div class="gp-btn" id="btn-12" style="grid-column:2; grid-row:1;">U</div>
+                            <div class="gp-btn" id="btn-14" style="grid-column:1; grid-row:2;">L</div>
+                            <div class="gp-btn" id="btn-15" style="grid-column:3; grid-row:2;">R</div>
+                            <div class="gp-btn" id="btn-13" style="grid-column:2; grid-row:3;">D</div>
+                        </div>
+                        <!-- Center Buttons -->
+                        <div class="gp-center-btns">
+                            <div class="gp-btn gp-small-btn" id="btn-8">SEL</div>
+                            <div class="gp-btn gp-small-btn" id="btn-16">SYS</div>
+                            <div class="gp-btn gp-small-btn" id="btn-9">STA</div>
+                        </div>
+                        <!-- Action Buttons -->
+                        <div class="gp-action">
+                            <div class="gp-btn" id="btn-3" style="grid-column:2; grid-row:1;">Y <span class="ps-sym">△</span></div>
+                            <div class="gp-btn" id="btn-2" style="grid-column:1; grid-row:2;">X <span class="ps-sym">□</span></div>
+                            <div class="gp-btn" id="btn-1" style="grid-column:3; grid-row:2;">B <span class="ps-sym">○</span></div>
+                            <div class="gp-btn" id="btn-0" style="grid-column:2; grid-row:3;">A <span class="ps-sym">✕</span></div>
+                        </div>
+                    </div>
+                    <!-- Sticks -->
+                    <div class="gp-sticks">
+                        <div class="gp-stick-box">
+                            <div class="gp-stick-bg" id="btn-10">
+                                <canvas id="stick-canvas-l" width="120" height="120" style="position:absolute; top:0; left:0;"></canvas>
+                                <div class="gp-stick-dot" id="stick-left"></div>
+                            </div>
+                            <div class="gp-stick-coords" id="coords-left">X: 0.00<br>Y: 0.00</div>
+                        </div>
+                        <div class="gp-stick-box">
+                            <div class="gp-stick-bg" id="btn-11">
+                                <canvas id="stick-canvas-r" width="120" height="120" style="position:absolute; top:0; left:0;"></canvas>
+                                <div class="gp-stick-dot" id="stick-right"></div>
+                            </div>
+                            <div class="gp-stick-coords" id="coords-right">X: 0.00<br>Y: 0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gp-sidebar">
+                <h3 class="accent-teal">LIVE TELEMETRY</h3>
+                <div id="gp-raw-data" class="gp-raw-data">Waiting for input stream...</div>
+                <button id="gp-vibrate" class="gp-action-btn"><i class="ph-bold ph-vibrate"></i> TEST HAPTICS</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

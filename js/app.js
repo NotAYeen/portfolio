@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAntonHover();
     initBadgeHover();
     initTriangleSpin();
+    initEasterEgg();
 });
 
 async function initTickers() {
@@ -374,4 +375,190 @@ function initTriangleSpin() {
             polygons[i].style.transform = `rotate(${target}deg)`;
         }
     });
+}
+
+function initEasterEgg() {
+    // 1. Konami Code (PC)
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === konamiCode[konamiIndex].toLowerCase() || e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                triggerEasterEgg();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    // 2. Mobile Taps (3 taps on pseudonym)
+    const nameEl = document.querySelector('.animated-name');
+    let tapCount = 0;
+    let tapTimeout;
+    if (nameEl) {
+        nameEl.addEventListener('click', () => {
+            tapCount++;
+            clearTimeout(tapTimeout);
+            if (tapCount >= 3) {
+                triggerEasterEgg();
+                tapCount = 0;
+            } else {
+                tapTimeout = setTimeout(() => { tapCount = 0; }, 500);
+            }
+        });
+    }
+
+    // 3. Exit Override
+    const exitBtn = document.getElementById('gp-exit');
+    if (exitBtn) {
+        exitBtn.addEventListener('click', () => {
+            document.querySelector('.wireframe-container').classList.remove('system-override');
+            document.getElementById('gamepad-tester').classList.add('hidden');
+            if (gpLoopId) cancelAnimationFrame(gpLoopId);
+
+            // Clear stick canvases
+            ['stick-canvas-l', 'stick-canvas-r'].forEach(id => {
+                const cvs = document.getElementById(id);
+                if (cvs && cvs.getContext) cvs.getContext('2d').clearRect(0, 0, 120, 120);
+            });
+        });
+    }
+
+    // 4. Test Haptics
+    const vibBtn = document.getElementById('gp-vibrate');
+    if (vibBtn) {
+        vibBtn.addEventListener('click', () => {
+            const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+            let gp = null;
+            for(let i = 0; i < gamepads.length; i++) {
+                if(gamepads[i] !== null) { gp = gamepads[i]; break; }
+            }
+            if (gp && gp.vibrationActuator) {
+                gp.vibrationActuator.playEffect("dual-rumble", {
+                    startDelay: 0,
+                    duration: 500,
+                    weakMagnitude: 1.0,
+                    strongMagnitude: 1.0
+                });
+            }
+        });
+    }
+    // 5. Gamepad Connection Events
+    window.addEventListener("gamepadconnected", (e) => {
+        console.log("Gamepad connected", e.gamepad);
+        const rawData = document.getElementById('gp-raw-data');
+        if (rawData) rawData.textContent = `[EVENT] Gamepad connected: ${e.gamepad.id}\nWaiting for data stream...`;
+    });
+    window.addEventListener("gamepaddisconnected", (e) => {
+        console.log("Gamepad disconnected", e.gamepad);
+        const idText = document.getElementById('gp-id');
+        if (idText) idText.textContent = "CONNECTION LOST";
+    });
+}
+
+let gpLoopId;
+let pollCount = 0;
+function triggerEasterEgg() {
+    document.querySelector('.wireframe-container').classList.add('system-override');
+    document.getElementById('gamepad-tester').classList.remove('hidden');
+    gpLoopId = requestAnimationFrame(gamepadLoop);
+}
+
+function gamepadLoop() {
+    pollCount++;
+    const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+    let gp = null;
+    for(let i = 0; i < gamepads.length; i++) {
+        if(gamepads[i] !== null && gamepads[i] !== undefined) {
+            gp = gamepads[i];
+            break;
+        }
+    }
+    
+    const idText = document.getElementById('gp-id');
+    const rawData = document.getElementById('gp-raw-data');
+
+    if (!gp) {
+        if (idText) idText.textContent = "AWAITING CONNECTION... PRESS ANY BUTTON";
+        if (rawData && rawData.textContent.includes("Waiting")) {
+            const dots = ['.  ', '.. ', '...'][(Math.floor(pollCount/15) % 3)];
+            rawData.textContent = `Waiting for input stream${dots}\n(Browser is actively polling hardware)`;
+        }
+    } else {
+        if (idText) idText.textContent = `CONNECTED: ${gp.id}`;
+        
+        let telemetry = `Timestamp: ${gp.timestamp.toFixed(2)}\n`;
+        telemetry += `Axes: ${gp.axes.length}\nButtons: ${gp.buttons.length}\n\n`;
+
+        // Standard Gamepad Mapping
+        for(let i = 0; i < gp.buttons.length; i++) {
+            const b = gp.buttons[i];
+            const btnEl = document.getElementById(`btn-${i}`);
+            if (btnEl) {
+                if (b.pressed) btnEl.classList.add('active');
+                else btnEl.classList.remove('active');
+            }
+            
+            // Analog Triggers
+            if (i === 6) {
+                const fillL = document.getElementById('trig-fill-l');
+                if (fillL) fillL.style.height = `${b.value * 100}%`;
+            }
+            if (i === 7) {
+                const fillR = document.getElementById('trig-fill-r');
+                if (fillR) fillR.style.height = `${b.value * 100}%`;
+            }
+            telemetry += `BTN ${i}: ${b.pressed ? '1' : '0'} (Val: ${b.value.toFixed(2)})\n`;
+        }
+
+        telemetry += `\n`;
+
+        // Axes (Standard: 0=LX, 1=LY, 2=RX, 3=RY)
+        if (gp.axes.length >= 4) {
+            // Apply a small deadzone for visual stick rendering so it doesn't drift
+            const applyDeadzone = (val) => Math.abs(val) < 0.05 ? 0 : val;
+            
+            const lx = applyDeadzone(gp.axes[0]);
+            const ly = applyDeadzone(gp.axes[1]);
+            const rx = applyDeadzone(gp.axes[2]);
+            const ry = applyDeadzone(gp.axes[3]);
+
+            telemetry += `AXIS 0 (LX): ${gp.axes[0].toFixed(4)}\n`;
+            telemetry += `AXIS 1 (LY): ${gp.axes[1].toFixed(4)}\n`;
+            telemetry += `AXIS 2 (RX): ${gp.axes[2].toFixed(4)}\n`;
+            telemetry += `AXIS 3 (RY): ${gp.axes[3].toFixed(4)}\n`;
+
+            const sLeft = document.getElementById('stick-left');
+            const sRight = document.getElementById('stick-right');
+            const cLeft = document.getElementById('coords-left');
+            const cRight = document.getElementById('coords-right');
+
+            if (sLeft) sLeft.style.transform = `translate(${lx * 45}px, ${ly * 45}px)`;
+            if (sRight) sRight.style.transform = `translate(${rx * 45}px, ${ry * 45}px)`;
+            if (cLeft) cLeft.innerHTML = `X: ${lx.toFixed(2)}<br>Y: ${ly.toFixed(2)}`;
+            if (cRight) cRight.innerHTML = `X: ${rx.toFixed(2)}<br>Y: ${ry.toFixed(2)}`;
+
+            // Draw Trails for Circularity Test
+            const drawTrail = (canvasId, cx, cy) => {
+                const canvas = document.getElementById(canvasId);
+                if (canvas && canvas.getContext) {
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'rgba(226, 183, 20, 0.6)'; // accent-yellow trail
+                    ctx.beginPath();
+                    const px = (cx + 1) * 60;
+                    const py = (cy + 1) * 60;
+                    ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            };
+            drawTrail('stick-canvas-l', lx, ly);
+            drawTrail('stick-canvas-r', rx, ry);
+        }
+
+        if (rawData) rawData.textContent = telemetry;
+    }
+
+    gpLoopId = requestAnimationFrame(gamepadLoop);
 }
