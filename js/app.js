@@ -116,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initBadgeHover();
     initTriangleSpin();
     initEasterEgg();
+    initStarfield();
+    initKojimaCredits();
+    initSpotlightHover();
 });
 
 async function initTickers() {
@@ -163,18 +166,12 @@ function startClock() {
 
 function initAntonHover() {
     const letters = document.querySelectorAll('.anton-letter');
+    
     letters.forEach(span => {
-        span.addEventListener('mousemove', (e) => {
+        span.addEventListener('pointermove', (e) => {
             const rect = span.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            span.style.setProperty('--x', `${x}px`);
-            span.style.setProperty('--y', `${y}px`);
-            span.style.setProperty('--r', '150%');
-        });
-        
-        span.addEventListener('mouseleave', () => {
-            span.style.setProperty('--r', '0px');
+            span.style.setProperty('--x', e.clientX - rect.left);
+            span.style.setProperty('--y', e.clientY - rect.top);
         });
     });
 }
@@ -191,12 +188,14 @@ function renderProjects() {
         item.style.setProperty('--hover-bg', hoverPalette[index % hoverPalette.length]);
 
         item.innerHTML = `
-            <div class="bp-meta">
-                <span>[${proj.id.toUpperCase()}]</span>
-                <span style="color: currentColor; opacity: 0.8;">${proj.estado}</span>
+            <div class="blueprint-content">
+                <div class="bp-meta">
+                    <span>[${proj.id.toUpperCase()}]</span>
+                    <span style="color: currentColor; opacity: 0.8;">${proj.estado}</span>
+                </div>
+                <h3 class="bp-title">${proj.nombre}</h3>
+                <p class="bp-desc">${proj.categoria} // ${proj.tecnologias.join(', ')}</p>
             </div>
-            <h3 class="bp-title">${proj.nombre}</h3>
-            <p class="bp-desc">${proj.categoria} // ${proj.tecnologias.join(', ')}</p>
         `;
         container.appendChild(item);
     });
@@ -212,10 +211,12 @@ function renderServices() {
         item.style.setProperty('--hover-bg', hoverPalette[(index + 2) % hoverPalette.length]);
 
         item.innerHTML = `
-            <div class="bp-meta">
-                <span><i class="ph-bold ${srv.icono}"></i> ${srv.area.toUpperCase()}</span>
+            <div class="blueprint-content">
+                <div class="bp-meta">
+                    <span><i class="ph-bold ${srv.icono}"></i> ${srv.area.toUpperCase()}</span>
+                </div>
+                <p class="bp-desc">${srv.servicios[0].substring(0, 80)}...</p>
             </div>
-            <p class="bp-desc">${srv.servicios[0].substring(0, 80)}...</p>
         `;
         container.appendChild(item);
     });
@@ -231,6 +232,9 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+                setTimeout(() => {
+                    entry.target.style.transitionDelay = '0s';
+                }, 800);
             }
         });
     }, observerOptions);
@@ -254,6 +258,11 @@ function initModals() {
 
         if (type === 'project') {
             const proj = portfolioData.repositorio_proyectos[card.dataset.index];
+            
+            // Calculate text lengths to dynamically distribute flex-grow
+            const textBlueLen = proj.descripcion.length + proj.tecnologias.join(' ').length;
+            const textBeigeLen = proj.caracteristicas_tecnicas.join(' ').length;
+            
             body.innerHTML = `
                 <div class="jigsaw-grid">
                     <div class="jigsaw-panel jigsaw-red">
@@ -264,14 +273,14 @@ function initModals() {
                             <span>${proj.entornos.join(', ')}</span>
                         </div>
                     </div>
-                    <div class="jigsaw-panel jigsaw-blue">
+                    <div class="jigsaw-panel jigsaw-blue" style="flex: ${textBlueLen} 1 300px;">
                         <h3 class="modal-subtitle">// TECH_STACK</h3>
                         <div style="font-weight: bold; margin-bottom: 2rem;">${proj.tecnologias.join(' / ')}</div>
                         <div style="font-weight: bold; font-size: 1rem; line-height: 1.6; opacity: 0.9;">
                             ${proj.descripcion}
                         </div>
                     </div>
-                    <div class="jigsaw-panel jigsaw-beige">
+                    <div class="jigsaw-panel jigsaw-beige" style="flex: ${textBeigeLen} 1 300px;">
                         <h3 class="modal-subtitle">// FEATURES</h3>
                         <ul style="list-style:none; display:flex; flex-direction:column; gap:1rem;">
                             ${proj.caracteristicas_tecnicas.map(f => `<li style="padding-left:1.5rem; position:relative; font-weight:bold; line-height: 1.4;"><span style="position:absolute; left:0; font-weight:900;">></span>${f}</li>`).join('')}
@@ -337,7 +346,7 @@ function initTriangleSpin() {
     
     let isHovered = false;
     let angles = [0, 0, 0, 0, 0];
-    let speeds = [1, -1, 1, -1, 1]; 
+    let speeds = [0.5, -0.9, 1.4, -2.1, 3.2]; 
     let reqId;
     let lastTime;
 
@@ -458,6 +467,130 @@ function initEasterEgg() {
     });
 }
 
+function initStarfield() {
+    const canvas = document.getElementById('starfield');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let width, height;
+    let stars = [];
+    let shootingStars = [];
+    const numStars = 700; // Increased density
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    // Create stars
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 1.5 + 0.5,
+            baseAlpha: Math.random() * 0.5 + 0.1,
+            twinkleSpeed: Math.random() * 0.03 + 0.01,
+            twinklePhase: Math.random() * Math.PI * 2,
+            parallaxFactor: Math.random() * 0.6 + 0.1, // Para dar sensacion de profundidad 3D
+            color: Math.random() > 0.85 ? '#C1AB85' : (Math.random() > 0.5 ? '#3E6868' : '#ffffff') 
+        });
+    }
+
+    // Mouse tracking for parallax
+    window.addEventListener('mousemove', (e) => {
+        targetMouseX = (e.clientX - width / 2) * 0.15;
+        targetMouseY = (e.clientY - height / 2) * 0.15;
+    });
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Easing for smooth parallax
+        mouseX += (targetMouseX - mouseX) * 0.05;
+        mouseY += (targetMouseY - mouseY) * 0.05;
+        
+        stars.forEach(star => {
+            // Twinkle logic
+            star.twinklePhase += star.twinkleSpeed;
+            let alpha = star.baseAlpha + Math.sin(star.twinklePhase) * 0.4;
+            if (alpha < 0.1) alpha = 0.1;
+            if (alpha > 1) alpha = 1;
+            
+            // Parallax offset
+            let px = star.x - mouseX * star.parallaxFactor;
+            let py = star.y - mouseY * star.parallaxFactor;
+            
+            // Wrap around screen edges
+            if (px < 0) px += width;
+            if (px > width) px -= width;
+            if (py < 0) py += height;
+            if (py > height) py -= height;
+            
+            ctx.fillStyle = star.color;
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.arc(px, py, star.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        // --- Shooting Stars Logic ---
+        // Randomly spawn a shooting star (approx 1 per second at 60fps)
+        if (Math.random() < 0.015) {
+            shootingStars.push({
+                x: Math.random() * width,
+                y: 0, // start from top
+                length: Math.random() * 80 + 20,
+                speedX: Math.random() * 10 + 10, // move fast diagonally
+                speedY: Math.random() * 10 + 10,
+                life: 1.0 // opacity life
+            });
+        }
+        
+        // Animate and draw shooting stars
+        for (let i = shootingStars.length - 1; i >= 0; i--) {
+            let ss = shootingStars[i];
+            
+            // Draw
+            ctx.beginPath();
+            ctx.moveTo(ss.x, ss.y);
+            ctx.lineTo(ss.x - ss.length, ss.y - ss.length * (ss.speedY / ss.speedX));
+            ctx.strokeStyle = `rgba(255, 255, 255, ${ss.life})`;
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            
+            // Move
+            ss.x += ss.speedX;
+            ss.y += ss.speedY;
+            ss.life -= 0.02; // fade out quickly
+            
+            // Remove if dead or out of bounds
+            if (ss.life <= 0 || ss.x > width + ss.length || ss.y > height + ss.length) {
+                shootingStars.splice(i, 1);
+            }
+        }
+        
+        ctx.globalAlpha = 1; // reset alpha
+        requestAnimationFrame(animate);
+    }
+    
+    // Ensure body styling doesn't override canvas
+    document.body.style.backgroundImage = 'none';
+    const noiseSvg = document.querySelector('.noise-overlay');
+    if (noiseSvg) noiseSvg.style.display = 'none';
+
+    animate();
+}
+
 let gpLoopId;
 let pollCount = 0;
 function triggerEasterEgg() {
@@ -561,4 +694,46 @@ function gamepadLoop() {
     }
 
     gpLoopId = requestAnimationFrame(gamepadLoop);
+}
+
+function initKojimaCredits() {
+    const s1 = "color: #3E6868; font-size: 10px; font-weight: bold; font-family: monospace; display: block; margin-top: 10px;";
+    const s2 = "color: #C1AB85; font-size: 18px; font-weight: 900; font-family: 'Arial Black', sans-serif; display: block; text-transform: uppercase; letter-spacing: 2px;";
+    
+    console.log("%cCREATED BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cDIRECTED BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cPRODUCED BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cSTARRING", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cWRITTEN BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cGAME DESIGN BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cLEVEL DESIGN BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cPROGRAMMED AND ARCHITECTED BY", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cGUEST STARRING", s1);
+    console.log("%cNotAYeen", s2);
+    console.log("%cA NotAYeen PRODUCTION", s1);
+}
+
+function initSpotlightHover() {
+    const attachSpotlight = (containerId) => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.addEventListener("pointermove", (ev) => {
+            const items = container.querySelectorAll(".blueprint-item");
+            items.forEach((item) => {
+                const rect = item.getBoundingClientRect();
+                item.style.setProperty("--x", ev.clientX - rect.left);
+                item.style.setProperty("--y", ev.clientY - rect.top);
+            });
+        });
+    };
+    attachSpotlight('projects-container');
+    attachSpotlight('services-container');
 }
