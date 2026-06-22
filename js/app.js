@@ -622,6 +622,8 @@ function initStarfield() {
     let targetMouseY = 0;
 
     function resize() {
+        if (width && window.innerWidth === width) return; // Prevent clearing canvas on mobile vertical scroll
+        
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;

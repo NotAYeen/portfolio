@@ -253,11 +253,23 @@ body {
 /* Cols 2,3,4 Inner Layout */
 .col-header {
     font-family: var(--font-mono);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.8rem);
     font-weight: bold;
     color: #e2d7b4;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    text-align: center;
+}
+
+.col-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #e2d7b4;
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 1.2vw + 0.3rem, 1.2rem);
+    text-align: center;
+    line-height: 1.8;
 }
 .col-img {
     flex: 1;
@@ -270,7 +282,7 @@ body {
 }
 .col-img img {
     width: 100%;
-    max-width: 200px;
+    max-width: 170px;
     height: auto;
     object-fit: contain;
     margin: 2rem auto 1rem auto;
@@ -1057,8 +1069,7 @@ body {
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
     }
-    
-    /* MOBILE LAYOUT FOR COLUMNS */
+        /* ZIGZAG LAYOUT FOR MOBILE */
     .clickable-col {
         min-height: auto !important;
         padding: 0 !important;
@@ -1066,41 +1077,56 @@ body {
     }
     .clickable-col .col-content {
         display: flex;
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-        padding: 2rem 1rem;
+        flex-direction: row; /* Col 1 & 3: Text Left, Image Right */
         align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0.5rem;
+    }
+    #col-mobile .col-content {
+        flex-direction: row-reverse; /* Col 2: Image Left, Text Right */
+    }
+    
+    .clickable-col .col-text {
+        width: 60%;
+        padding: 0 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .clickable-col .col-header {
         width: 100%;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        text-align: left;
     }
+    #col-mobile .col-header {
+        text-align: right;
+    }
+    
+    .clickable-col .col-text ul {
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+    #col-mobile .col-text ul {
+        text-align: right !important;
+    }
+
     .clickable-col .col-img {
-        width: 100%;
+        width: 40%;
         height: auto;
-        padding: 0;
+        padding: 0 0.5rem;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: 0;
     }
     .clickable-col .col-img img {
         width: 100%;
-        max-width: 200px;
+        max-width: 120px;
         height: auto;
-        margin: 2rem auto 1rem auto;
+        margin: 0;
         object-fit: contain;
     }
     .click-hint { display: none !important; }
-    .clickable-col .col-img ul {
-        font-size: 0.9rem !important;
-        text-align: left !important;
-        padding-left: 1rem !important;
-        line-height: 1.4 !important;
-    }
 
     .footer-row {
         flex-wrap: wrap;
@@ -1313,4 +1339,56 @@ body.colorblind-mode .col-panel {
 body.colorblind-mode .small-term-btn:hover {
     background: var(--c-primary) !important;
     color: #000000 !important;
+}
+
+/* Mobile Landscape Responsiveness */
+@media (max-width: 900px) and (orientation: landscape) {
+    .four-col-accordion {
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .col-panel {
+        flex: 0 0 50% !important;
+        width: 50%;
+        min-height: auto;
+        border-right: 1px solid var(--c-primary) !important;
+        border-bottom: 1px solid var(--c-primary);
+    }
+    .col-panel:nth-child(even) {
+        border-right: none !important;
+    }
+    
+    /* Revert zigzag for 2x2 grid since columns are narrow again */
+    .clickable-col .col-content {
+        flex-direction: column !important;
+        padding: 1rem;
+    }
+    .clickable-col .col-text {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    .clickable-col .col-header {
+        text-align: center !important;
+    }
+    .clickable-col .col-text ul {
+        text-align: center !important;
+    }
+    .clickable-col .col-img {
+        width: 100%;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0 !important;
+    }
+    .clickable-col .col-img img {
+        max-width: 80px;
+        margin: 0.5rem auto !important;
+    }
+    .profile-img-container img {
+        max-width: 100px !important;
+    }
+    .giant-name {
+        font-size: 2rem !important;
+    }
 }
