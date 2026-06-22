@@ -628,6 +628,18 @@ function initStarfield() {
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
+        
+        // Re-generate stars to cover new window dimensions properly
+        stars = [];
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                z: Math.random() * 2,
+                baseAlpha: Math.random() * 0.5 + 0.1,
+                alpha: 0
+            });
+        }
     }
     
     window.addEventListener('resize', resize);
@@ -1175,6 +1187,17 @@ function renderTaskiiStep(stepId, userText = null, isBack = false) {
                 wrapper.style.display = 'flex';
                 wrapper.style.flexDirection = 'column';
                 wrapper.style.gap = '0.5rem';
+                
+                const warningMsg = document.createElement('div');
+                warningMsg.innerHTML = '⚠️ <strong>Importante:</strong> Por favor, incluye tu <strong>número de teléfono o WhatsApp</strong> para poder contactarte.';
+                warningMsg.style.color = 'var(--c-primary)';
+                warningMsg.style.fontSize = '0.85rem';
+                warningMsg.style.lineHeight = '1.4';
+                warningMsg.style.marginBottom = '0.5rem';
+                warningMsg.style.background = 'rgba(0,0,0,0.3)';
+                warningMsg.style.padding = '0.5rem';
+                warningMsg.style.borderRadius = '5px';
+                wrapper.appendChild(warningMsg);
 
                 const textarea = document.createElement('textarea');
                 textarea.placeholder = stepData.input.placeholder;

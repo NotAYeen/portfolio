@@ -203,30 +203,62 @@ body {
     z-index: 2;
 }
 
-/* Col 1 Typography */
+/* Col 1 Typography & Layout */
+.profile-content {
+    padding: max(1rem, 3vh) max(1rem, 2vw) !important;
+}
 .giant-name {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-size: clamp(2rem, 8vmin, 6.5rem);
     font-weight: 900;
     color: var(--c-coral);
     line-height: 0.9;
     letter-spacing: -2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: max(0.2rem, 1vh);
 }
 .giant-subtitle {
     font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    font-size: clamp(1rem, 3vmin, 2.2rem);
     font-weight: 900;
     color: #e2d7b4;
     line-height: 1.1;
-    margin-bottom: 2.5rem;
+    margin-bottom: max(0.5rem, 3vh);
     letter-spacing: 1px;
+}
+.profile-img-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: max(0.5rem, 3vh);
+}
+.profile-img-container img {
+    max-width: 80%;
+    max-height: 35vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(62, 104, 104, 0.5));
+    border-radius: 50%;
+    border: 2px solid var(--c-primary);
 }
 .sys-tag {
     font-family: var(--font-mono);
     color: #e2d7b4;
     font-weight: bold;
+    font-size: clamp(0.6rem, 1.5vmin, 1rem);
     margin-bottom: auto;
+}
+.footer-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+}
+.footer-row .small-term-btn {
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: auto;
 }
 .footer-row {
     display: flex;
@@ -253,10 +285,10 @@ body {
 /* Cols 2,3,4 Inner Layout */
 .col-header {
     font-family: var(--font-mono);
-    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.8rem);
+    font-size: clamp(0.9rem, 2vmin + 0.2rem, 1.8rem);
     font-weight: bold;
     color: #e2d7b4;
-    margin-bottom: 1rem;
+    margin-bottom: max(0.5rem, 2vh);
     text-transform: uppercase;
     text-align: center;
 }
@@ -267,9 +299,9 @@ body {
     margin: 0;
     color: #e2d7b4;
     font-family: var(--font-heading);
-    font-size: clamp(0.75rem, 1.2vw + 0.3rem, 1.2rem);
+    font-size: clamp(0.7rem, 1.5vmin + 0.1rem, 1.2rem);
     text-align: center;
-    line-height: 1.8;
+    line-height: clamp(1.2, 3vh, 1.8);
 }
 .col-img {
     flex: 1;
@@ -284,8 +316,9 @@ body {
     width: 100%;
     max-width: 170px;
     height: auto;
+    max-height: 35vh;
     object-fit: contain;
-    margin: 2rem auto 1rem auto;
+    margin: max(0.5rem, 3vh) auto max(0.2rem, 1vh) auto;
     display: block;
 }
 .col-specs {
@@ -1221,7 +1254,9 @@ body {
     bottom: 2rem;
     right: 2rem;
     width: 600px;
+    max-width: calc(100vw - 4rem);
     height: 400px;
+    max-height: calc(100vh - 4rem);
     background: rgba(10, 10, 10, 0.95);
     border: 2px solid var(--c-primary);
     border-radius: 10px;
@@ -1341,54 +1376,74 @@ body.colorblind-mode .small-term-btn:hover {
     color: #000000 !important;
 }
 
-/* Mobile Landscape Responsiveness */
+/* Mobile Landscape Responsiveness - 4 COLUMNS NO SCROLL */
 @media (max-width: 900px) and (orientation: landscape) {
     .four-col-accordion {
-        flex-direction: row;
-        flex-wrap: wrap;
-        overflow-y: auto;
-        overflow-x: hidden;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+        height: 100vh !important;
     }
     .col-panel {
-        flex: 0 0 50% !important;
-        width: 50%;
-        min-height: auto;
+        flex: 1 !important;
+        width: auto !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
         border-right: 1px solid var(--c-primary) !important;
-        border-bottom: 1px solid var(--c-primary);
+        border-bottom: none !important;
+        overflow: hidden !important;
     }
-    .col-panel:nth-child(even) {
+    .col-panel:last-child {
         border-right: none !important;
     }
     
-    /* Revert zigzag for 2x2 grid since columns are narrow again */
+    /* Revert ZigZag layout inner styling since columns are narrow */
     .clickable-col .col-content {
         flex-direction: column !important;
-        padding: 1rem;
+        padding: max(0.5rem, 2vh) max(0.5rem, 1vw) !important;
+        justify-content: center !important;
     }
     .clickable-col .col-text {
-        width: 100%;
-        padding: 0;
-        text-align: center;
-    }
-    .clickable-col .col-header {
+        width: 100% !important;
+        padding: 0 !important;
         text-align: center !important;
     }
-    .clickable-col .col-text ul {
+    .clickable-col .col-header, #col-mobile .col-header {
         text-align: center !important;
+    }
+    .clickable-col .col-text ul, #col-mobile .col-text ul {
+        display: inline-block !important;
+        text-align: left !important;
+        margin: 0 auto !important;
     }
     .clickable-col .col-img {
-        width: 100%;
-        margin-top: 0.5rem !important;
-        margin-bottom: 0 !important;
+        width: 100% !important;
+        margin-top: max(0.2rem, 1vh) !important;
     }
     .clickable-col .col-img img {
-        max-width: 80px;
-        margin: 0.5rem auto !important;
+        margin: 0 auto !important;
     }
-    .profile-img-container img {
-        max-width: 100px !important;
+    .profile-content {
+        padding: max(0.5rem, 2vh) max(0.5rem, 1vw) !important;
     }
-    .giant-name {
-        font-size: 2rem !important;
+    .profile-img-container {
+        margin-bottom: max(0.2rem, 1vh) !important;
+    }
+}
+
+/* Mobile Terminal Responsiveness */
+@media (max-width: 900px) {
+    .terminal-window {
+        bottom: 1rem;
+        right: 1rem;
+        width: calc(100vw - 2rem);
+        max-width: 100vw;
+        height: 60vh;
+        max-height: 500px;
+    }
+    .floating-chat-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 65px;
     }
 }
