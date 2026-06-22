@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anton Flores - Portfolio // PORTAL</title>
+    <title>Anton Flores | Soluciones Tecnológicas</title>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Anton Flores | Soluciones Tecnológicas">
+    <meta property="og:description" content="Servicios de soporte técnico, desarrollo web, aplicaciones móviles y seguridad para negocios.">
+    <meta property="og:image" content="https://antonflores.github.io/portfolio/assets/yo1.webp"> <!-- Cambia esta URL por la final de tu repo -->
+    <meta property="og:url" content="https://antonflores.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#19A598">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +21,10 @@
     <script src="js/app.js" defer></script>
 </head>
 <body>
+    <!-- BIOS Boot Screen -->
+    <div id="bios-boot" class="bios-overlay">
+        <div class="bios-content" id="bios-content"></div>
+    </div>
     <div class="noise-overlay"></div>
     <main class="wireframe-container">
         
@@ -23,179 +35,137 @@
             </div>
         </div>
 
-        <!-- Huge Title -->
-        <div class="huge-title-section">
-            <h1 class="main-title" id="anton-title">
-                <span class="anton-letter" data-letter="A" style="--hover-color: var(--c-teal);">A</span>
-                <span class="anton-letter" data-letter="N" style="--hover-color: var(--c-coral);">N</span>
-                <span class="anton-letter" data-letter="T" style="--hover-color: #E2B714;">T</span>
-                <span class="anton-letter" data-letter="O" style="--hover-color: #809BCE;">O</span>
-                <span class="anton-letter" data-letter="N" style="--hover-color: #B8E0D2;">N</span>
-            </h1>
-            <div class="side-badge" id="side-badge">
-                <div class="badge-base">
-                    <div>THE</div>
-                    <div class="line-2">SYSTEM</div>
-                    <div>PORTAL</div>
-                </div>
-                <div class="badge-color">
-                    <div><span style="color: var(--c-teal);">T</span><span style="color: var(--c-coral);">H</span><span style="color: #E2B714;">E</span></div>
-                    <div class="line-2"><span style="color: #809BCE;">S</span><span style="color: #B8E0D2;">Y</span><span style="color: var(--c-teal);">S</span><span style="color: var(--c-coral);">T</span><span style="color: #E2B714;">E</span><span style="color: #809BCE;">M</span></div>
-                    <div><span style="color: #B8E0D2;">P</span><span style="color: var(--c-teal);">O</span><span style="color: var(--c-coral);">R</span><span style="color: #E2B714;">T</span><span style="color: #809BCE;">A</span><span style="color: #B8E0D2;">L</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ticker Mid -->
-        <div class="ticker-bar mid">
-            <div class="ticker-content" id="ticker-2">
-                <!-- JS will duplicate content for seamless scroll -->
-            </div>
-        </div>
-
-        <!-- Content Grid -->
-        <div class="blueprint-grid">
-            
-            <!-- Bio / Profile panel -->
-            <div class="panel profile-panel">
-                <div class="panel-header">
-                    <span class="animated-name">
-                        <span>N</span><span>o</span><span>t</span><span>A</span><span>Y</span><span>e</span><span>e</span><span>n</span>
-                    </span>
-                    <span><i class="ph-bold ph-sun"></i> ポータル</span>
-                    <span id="sys-clock">00:00:00</span>
-                </div>
-                <div class="panel-body profile-body">
-                    <div class="concentric-triangle">
-                        <svg viewBox="0 0 100 100">
-                          <polygon points="50,12.1 95,90 5,90"/>
-                          <polygon points="50,22.5 86,84.8 14,84.8"/>
-                          <polygon points="50,32.8 77,79.6 23,79.6"/>
-                          <polygon points="50,43.2 68,74.4 32,74.4"/>
-                          <polygon points="50,53.6 59,69.2 41,69.2"/>
-                        </svg>
+        <main class="four-col-accordion">
+            <!-- Col 1: Teal -->
+            <section class="col-panel bg-teal" id="col-profile">
+                <div class="col-content">
+                    <h1 class="giant-name">ANTON</h1>
+                    <h2 class="giant-subtitle">TECNOLOGÍA &<br>DESARROLLO</h2>
+                    
+                    <div class="profile-img-container" style="flex: 1; display:flex; align-items:center; justify-content:center; margin-bottom: 2rem;">
+                        <img src="assets/yo1.webp" alt="Anton Developer" style="max-width: 80%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 10px rgba(62, 104, 104, 0.5)); border-radius: 50%; border: 2px solid var(--c-primary);">
                     </div>
-                    <div class="profile-info">
-                        <h2 class="accent-coral">INITIATE SEQUENCE</h2>
-                        <p class="arrow-text">>>>>>>>>>>>>>>>>>>>>></p>
-                        <p class="desc-text">
-                            Ingeniero de Sistemas Computacionales.<br><br>
-                            Especializado en la automatización de procesos, arquitectura de software móvil y resiliencia de infraestructura.
-                        </p>
+
+                    <div class="sys-tag">[AGENCY_STATUS: ONLINE] <span class="footer-tag" style="margin-left: 1rem; color: var(--c-primary); opacity: 0.7;">©2026 <i class="ph-bold ph-check-circle"></i></span></div>
+                    
+                    <div class="footer-row" style="display: flex; gap: 0.5rem; align-items: center; width: 100%;">
+                        <button class="small-term-btn" id="btn-a11y" style="padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-right: auto;">
+                            👁️ VISIÓN
+                        </button>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Image panel -->
-            <div class="panel image-panel">
-                <img src="assets/yo1.webp" alt="Anton Profile" width="600" height="800" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/600x800/3E6868/C1AB85?text=PROFILE_IMG'">
-            </div>
-
-                <!-- Repositorio -->
-                <div class="panel" style="flex:1;">
-                    <div class="panel-header">
-                        <span>REPOSITORIO</span>
-                        <span><i class="ph-bold ph-folder"></i> DATOS LOCALES</span>
+            <!-- Col 2: Crimson -->
+            <section class="col-panel bg-crimson clickable-col" id="col-ghostline" data-index="0">
+                <div class="col-content">
+                    <div class="col-header">
+                        SOPORTE Y<br>MANTENIMIENTO
                     </div>
-                    <div class="panel-body" style="flex-direction:column;" id="projects-container">
-                        <!-- JS injected projects -->
-                    </div>
-                </div>
-
-                <!-- Infraestructura -->
-                <div class="panel" style="flex:1;">
-                    <div class="panel-header">
-                        <span>INFRAESTRUCTURA</span>
-                        <span><i class="ph-bold ph-hard-drive"></i> SERVICIOS.CORE</span>
-                    </div>
-                    <div class="panel-body" style="flex-direction:column;" id="services-container">
-                        <!-- JS injected services -->
+                    <div class="col-img" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width: 100%; text-align: center;">
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #e2d7b4; font-family: var(--font-heading); font-size: 1.2rem; text-align: center; line-height: 1.8;">
+                            <li>✔️ Mantenimiento de PC</li>
+                            <li>✔️ Vacuna Antivirus</li>
+                            <li>✔️ Redes Wi-Fi</li>
+                        </ul>
+                        <img src="assets/hrd.png" alt="Soporte Hardware" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); pointer-events: none;">
+                        <div class="click-hint" style="color: var(--c-primary); font-weight: bold; font-family: var(--font-heading); font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 8px; width: 100%; max-width: 280px; margin: 0 auto;">[ HAZ CLIC AQUÍ PARA VER ]</div>
                     </div>
                 </div>
+            </section>
 
-        </div>
+            <!-- Col 3: Steel Blue -->
+            <section class="col-panel bg-steelblue clickable-col" id="col-mobile" data-index="1">
+                <div class="col-content">
+                    <div class="col-header">
+                        PÁGINAS WEB<br>Y APPS
+                    </div>
+                    <div class="col-img" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #e2d7b4; font-family: var(--font-heading); font-size: 1.2rem; text-align: center; line-height: 1.8;">
+                            <li>✔️ Páginas Web a Medida</li>
+                            <li>✔️ Aplicaciones Móviles</li>
+                            <li>✔️ Sistemas de Negocio</li>
+                        </ul>
+                        <img src="assets/sft.png" alt="Desarrollo Software" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); pointer-events: none;">
+                        <div class="click-hint" style="color: var(--c-primary); font-weight: bold; font-family: var(--font-heading); font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 8px; width: 100%; max-width: 280px; margin: 0 auto;">[ HAZ CLIC AQUÍ PARA VER ]</div>
+                    </div>
+                </div>
+            </section>
 
-        <a href="" target="_blank" class="panel uplink-panel">
-            <h2 class="accent-teal">ESTABLECER ENLACE [ UPLINK ]</h2>
-            <i class="ph-bold ph-arrow-right"></i>
-        </a>
+            <!-- Col 4: Yellow -->
+            <section class="col-panel bg-yellow clickable-col" id="col-bdd" data-index="2">
+                <div class="col-content">
+                    <div class="col-header">
+                        SEGURIDAD Y<br>CONTROL
+                    </div>
+                    <div class="col-img" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                        <ul style="list-style: none; padding: 0; margin: 0; color: #e2d7b4; font-family: var(--font-heading); font-size: 1.2rem; text-align: center; line-height: 1.8;">
+                            <li>✔️ Control de Accesos</li>
+                            <li>✔️ Cámaras de Seguridad</li>
+                            <li>✔️ Bases de Datos Seguras</li>
+                        </ul>
+                        <img src="assets/sec.png" alt="Seguridad" style="filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); pointer-events: none;">
+                        <div class="click-hint" style="color: var(--c-primary); font-weight: bold; font-family: var(--font-heading); font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 8px; width: 100%; max-width: 280px; margin: 0 auto;">[ HAZ CLIC AQUÍ PARA VER ]</div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </main>
+
+    <!-- Floating Chat Button -->
+    <button id="btn-chat" class="floating-chat-btn">
+        <img src="assets/chatbot.png" alt="Taskii">
+    </button>
 
     <!-- Modal Overlay -->
     <div id="modal-overlay" class="modal-overlay">
         <div id="modal-content" class="modal-content">
             <div id="modal-body" class="modal-body"></div>
-            <button id="modal-close" class="modal-close" aria-label="Cerrar modal"><i class="ph-bold ph-x"></i></button>
+            <button id="modal-close" class="modal-close" aria-label="Cerrar modal">( X )</button>
         </div>
     </div>
 
-    <!-- Gamepad Tester Easter Egg -->
-    <div id="gamepad-tester" class="gamepad-tester hidden">
-        <div class="gp-header">
-            <h2 class="accent-coral"><i class="ph-bold ph-game-controller"></i> HARDWARE OVERRIDE // GAMEPAD_DIAGNOSTICS</h2>
-            <div id="gp-id" class="gp-id-text">AWAITING CONNECTION... PRESS ANY BUTTON</div>
-            <button id="gp-exit" class="gp-exit-btn">[ EXIT OVERRIDE ]</button>
-        </div>
-        <div class="gp-body">
-            <div class="gp-visual">
-                <div class="gp-chassis">
-                    <!-- Bumpers & Triggers -->
-                    <div class="gp-top-row">
-                        <div class="gp-trigger-group">
-                            <div class="gp-trigger" id="trig-l"><div class="gp-trigger-fill" id="trig-fill-l"></div></div>
-                            <div class="gp-btn gp-bumper" id="btn-4">LB <span>L1</span></div>
-                        </div>
-                        <div class="gp-trigger-group">
-                            <div class="gp-trigger" id="trig-r"><div class="gp-trigger-fill" id="trig-fill-r"></div></div>
-                            <div class="gp-btn gp-bumper" id="btn-5">RB <span>R1</span></div>
-                        </div>
-                    </div>
-                    <!-- Main Face -->
-                    <div class="gp-main-face">
-                        <!-- D-Pad -->
-                        <div class="gp-dpad">
-                            <div class="gp-btn" id="btn-12" style="grid-column:2; grid-row:1;">U</div>
-                            <div class="gp-btn" id="btn-14" style="grid-column:1; grid-row:2;">L</div>
-                            <div class="gp-btn" id="btn-15" style="grid-column:3; grid-row:2;">R</div>
-                            <div class="gp-btn" id="btn-13" style="grid-column:2; grid-row:3;">D</div>
-                        </div>
-                        <!-- Center Buttons -->
-                        <div class="gp-center-btns">
-                            <div class="gp-btn gp-small-btn" id="btn-8">SEL</div>
-                            <div class="gp-btn gp-small-btn" id="btn-16">SYS</div>
-                            <div class="gp-btn gp-small-btn" id="btn-9">STA</div>
-                        </div>
-                        <!-- Action Buttons -->
-                        <div class="gp-action">
-                            <div class="gp-btn" id="btn-3" style="grid-column:2; grid-row:1;">Y <span class="ps-sym">△</span></div>
-                            <div class="gp-btn" id="btn-2" style="grid-column:1; grid-row:2;">X <span class="ps-sym">□</span></div>
-                            <div class="gp-btn" id="btn-1" style="grid-column:3; grid-row:2;">B <span class="ps-sym">○</span></div>
-                            <div class="gp-btn" id="btn-0" style="grid-column:2; grid-row:3;">A <span class="ps-sym">✕</span></div>
-                        </div>
-                    </div>
-                    <!-- Sticks -->
-                    <div class="gp-sticks">
-                        <div class="gp-stick-box">
-                            <div class="gp-stick-bg" id="btn-10">
-                                <canvas id="stick-canvas-l" width="120" height="120" style="position:absolute; top:0; left:0;"></canvas>
-                                <div class="gp-stick-dot" id="stick-left"></div>
-                            </div>
-                            <div class="gp-stick-coords" id="coords-left">X: 0.00<br>Y: 0.00</div>
-                        </div>
-                        <div class="gp-stick-box">
-                            <div class="gp-stick-bg" id="btn-11">
-                                <canvas id="stick-canvas-r" width="120" height="120" style="position:absolute; top:0; left:0;"></canvas>
-                                <div class="gp-stick-dot" id="stick-right"></div>
-                            </div>
-                            <div class="gp-stick-coords" id="coords-right">X: 0.00<br>Y: 0.00</div>
-                        </div>
-                    </div>
+    <!-- Chat Modal Overlay -->
+    <div id="chat-overlay" class="modal-overlay">
+        <div id="chat-modal" class="modal-content" style="width: 95%; max-width: 900px; margin: auto; height: 80vh; max-height: 800px; background: rgba(15, 15, 15, 0.95); border: 2px solid var(--c-primary); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; position: relative;">
+            <div class="chat-header" style="padding: 1.5rem; border-bottom: 1px solid rgba(193,171,133,0.2); display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.02);">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--c-teal); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: 2px solid var(--c-primary); overflow: hidden;">
+                    <img src="assets/chatbot.png" alt="Taskii" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                    <h3 style="font-family: var(--font-heading); color: #fff; margin: 0; line-height: 1;">Taskii</h3>
+                    <span style="font-size: 0.75rem; color: var(--c-primary); opacity: 0.8;">[ ASISTENTE VIRTUAL ]</span>
+                </div>
+                <button id="chat-close" style="margin-left: auto; background: transparent; border: none; color: var(--c-coral); font-size: 2rem; font-family: var(--font-heading); font-weight: bold;">( X )</button>
+            </div>
+            
+            <div class="chat-body-layout" style="display: flex; flex: 1; overflow: hidden; flex-direction: row;">
+                <div id="chat-messages" style="flex: 1; overflow-y: auto; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; scrollbar-width: thin; scrollbar-color: var(--c-teal) transparent;">
+                    <!-- Messages will be injected here -->
+                </div>
+                
+                <div id="chat-options" style="width: 350px; min-width: 250px; padding: 1.5rem; border-left: 1px solid rgba(193,171,133,0.2); display: flex; flex-direction: column; gap: 0.8rem; background: rgba(0,0,0,0.3); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--c-primary) transparent;">
+                    <!-- Options will be injected here -->
                 </div>
             </div>
-            <div class="gp-sidebar">
-                <h3 class="accent-teal">LIVE TELEMETRY</h3>
-                <div id="gp-raw-data" class="gp-raw-data">Waiting for input stream...</div>
-                <button id="gp-vibrate" class="gp-action-btn"><i class="ph-bold ph-vibrate"></i> TEST HAPTICS</button>
+        </div>
+    </div>
+
+
+    <!-- Interactive Terminal -->
+    <div id="terminal-window" class="terminal-window hidden">
+        <div class="term-header" id="term-header">
+            <span class="term-title">/// PORTAL_TERMINAL_ACCESS ///</span>
+            <button id="term-close" class="term-close"><i class="ph-bold ph-x"></i></button>
+        </div>
+        <div class="term-body" id="term-body">
+            <div class="term-output" id="term-output">
+                <div>[SYSTEM] Conexión establecida.</div>
+                <div>[SYSTEM] Escriba 'help' para ver los comandos disponibles.</div>
+            </div>
+            <div class="term-input-line">
+                <span class="term-prompt">user@system:~$</span>
+                <input type="text" id="term-input" class="term-input" autocomplete="off" spellcheck="false" autofocus>
             </div>
         </div>
     </div>

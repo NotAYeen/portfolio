@@ -1,125 +1,319 @@
 const portfolioData = {
   "repositorio_proyectos": [
     {
+      "id": "win-detail-web",
+      "categoria": "CASO DE ÉXITO: SITIOS WEB",
+      "nombre": "Diseño de Páginas Web",
+      "tecnologias": ["Web"],
+      "entornos": ["Negocios", "Marcas"],
+      "estado": "DISPONIBLE",
+      "descripcion": "Diseñamos páginas web modernas, atractivas y ultra rápidas para darle presencia profesional a tu negocio en internet.",
+      "caracteristicas_tecnicas": [
+        "Diseño que vende: Páginas claras que guían a tus clientes directamente a comprar o contactarte.",
+        "Aparece en Google: Optimizamos tu sitio para que sea fácil de encontrar cuando busquen tus servicios.",
+        "Se adapta a todo: Tu página se verá perfecta tanto en celulares como en computadoras."
+      ]
+    },
+    {
       "id": "win-detail-moda",
-      "categoria": "MOBILE COMPILATION",
-      "nombre": "App Móvil Corporativa — Alta Costura",
-      "tecnologias": ["Flutter", "Dart"],
-      "entornos": ["iOS", "Android"],
-      "estado": "ACTIVE",
-      "descripcion": "Solución de software móvil integral desarrollada a pedido para digitalizar y centralizar por completo el flujo técnico y operativo de una casa de modas.",
+      "categoria": "CASO DE ÉXITO: APP MÓVIL",
+      "nombre": "Aplicaciones Móviles a Medida",
+      "tecnologias": ["Android", "iOS"],
+      "entornos": ["Negocios", "Empresas"],
+      "estado": "DISPONIBLE",
+      "descripcion": "Desarrollamos aplicaciones móviles personalizadas para llevar el control, organización y ventas de tu negocio directamente al celular de tus clientes.",
       "caracteristicas_tecnicas": [
-        "Calculadora Métrica: Algoritmo integrado de alta precisión para el patronaje industrial automatizado.",
-        "Extractor Cromático Inteligente: Módulo basado en la teoría del color que procesa imágenes seleccionadas por el usuario para segmentar paletas de colores funcionales.",
-        "CRM de Confección: Base de datos interna optimizada para almacenar fichas técnicas detalladas de las prendas vinculadas al registro de clientes.",
-        "Interfaz Adaptativa: Soporte nativo para Modo Noche (Dark Mode).",
-        "API de Enlace Directo: Módulo de comunicación inmediata integrado en el núcleo para llamadas y mensajería instantánea hacia el cliente."
+        "Digitaliza tus procesos: Pasa del papel y lápiz a herramientas automáticas en tu teléfono.",
+        "Atención 24/7: Tus clientes pueden ver tus servicios, productos o agendar citas en cualquier momento desde la App.",
+        "Fidelización: Mantén a tus clientes conectados a tu negocio con un solo toque en sus celulares."
       ]
     },
     {
-      "id": "win-detail-face",
-      "categoria": "COMPUTER VISION",
-      "nombre": "Sistema BioCrop — Recorte Facial Autónomo",
-      "tecnologias": ["Python", "OpenCV", "CustomTkinter"],
-      "entornos": ["PC OS"],
-      "estado": "DEPLOYED",
-      "descripcion": "Software de visión artificial enfocado en la eliminación del 100% de las tareas manuales y repetitivas en el procesamiento masivo de imágenes de personal para bases de datos.",
+      "id": "win-detail-auto",
+      "categoria": "SOLUCIONES CORPORATIVAS",
+      "nombre": "Sistemas Inteligentes de Negocio",
+      "tecnologias": ["Software"],
+      "entornos": ["Oficinas", "PC"],
+      "estado": "DISPONIBLE",
+      "descripcion": "Si tu personal pierde horas haciendo trabajo manual y repetitivo, necesitas un sistema inteligente que lo haga por ti.",
       "caracteristicas_tecnicas": [
-        "Detección Biométrica: Análisis lógico de pixeles para la localización exacta de rostros en fotografías corporativas.",
-        "Normalización Autónoma: Recorte, redimensionamiento y ajuste milimétrico automático de las imágenes según los estándares rígidos de las bases de datos de destino."
-      ]
-    },
-    {
-      "id": "win-detail-cover",
-      "categoria": "GAME ENGINE WORK",
-      "nombre": "The Cover Artist: 128-Bit Legacy",
-      "tecnologias": ["Godot Engine"],
-      "entornos": ["PC"],
-      "estado": "DEV",
-      "descripcion": "Videojuego de simulación interactiva enfocado en la preservación metodológica y gráfica del diseño de portadas de la era clásica de los 128 bits.",
-      "caracteristicas_tecnicas": [
-        "Gestión de Assets: Arquitectura interna optimizada en Godot para la manipulación dinámica y edición de portadas retro.",
-        "Mecánicas Orientadas al Usuario: Flujo lógico diseñado para emular las herramientas de creación clásicas de la era de PlayStation 2."
-      ]
-    },
-    {
-      "id": "win-detail-school",
-      "categoria": "WEB UX REFORM",
-      "nombre": "Rediseño de Portal Web Institucional",
-      "tecnologias": ["HTML5", "CSS3", "Vanilla JS"],
-      "entornos": ["Web"],
-      "estado": "LIVE",
-      "descripcion": "Modernización y reforma estructural completa de la plataforma oficial de una institución de educación media superior (CONALEP) para optimizar la experiencia de usuario.",
-      "caracteristicas_tecnicas": [
-        "Optimización de Interfaz: Maquetación responsiva a código limpio, eliminando dependencias pesadas para maximizar la velocidad de carga.",
-        "Arquitectura de la Información: Reestructuración lógica para reducir los pasos críticos en el acceso a trámites, formatos de asesoría y consultas estudiantiles."
-      ]
-    },
-    {
-      "id": "win-detail-cafe",
-      "categoria": "QR INTERACTION",
-      "nombre": "App de Pedidos & Fidelización QR",
-      "tecnologias": ["Flutter", "Mobile Architecture"],
-      "entornos": ["Android", "iOS"],
-      "estado": "ARCHIVED",
-      "descripcion": "Sistema móvil integral para comedores escolares diseñado con el objetivo de mitigar tiempos de espera y automatizar programas de lealtad.",
-      "caracteristicas_tecnicas": [
-        "Comandas Digitales: Procesamiento y envío de órdenes en tiempo real desde terminales móviles hacia la cocina.",
-        "Fidelización QR Dinámica: Generación y escaneo de códigos integrados para la asignación automatizada de puntos de lealtad al usuario."
+        "Trabajadores incansables: Los programas de software automatizado trabajan 24/7 sin distracciones ni errores.",
+        "Procesos súper rápidos: Lo que a un humano le toma horas hacer, el programa lo termina en segundos.",
+        "Organización perfecta: Deja de perder facturas y correos, el sistema captura y ordena toda la información."
       ]
     }
   ],
   "servicios_infraestructura": [
     {
-      "area": "Control de Accesos & BDD",
-      "icono": "ph-lock-key",
-      "servicios": [
-        "Manipulación e instalación lógica de hardware de torniquetes automatizados para control perimetral.",
-        "Administración y enlace de infraestructura perimetral con bases de datos relacionales para el monitoreo de entradas y salidas en tiempo real."
-      ]
-    },
-    {
-      "area": "Mantenimiento Técnico",
+      "area": "Mantenimiento de PC",
       "icono": "ph-wrench",
       "servicios": [
-        "Diagnóstico físico y lógico integral de infraestructura corporativa y escolar.",
-        "Optimización masiva de rendimiento en laboratorios informáticos completos y salones de cómputo.",
-        "Despliegues controlados y actualización segura de sistemas operativos Microsoft Windows y entornos basados en Linux."
-      ]
+        "Reparación de computadoras lentas o que no encienden para que vuelvan a funcionar como nuevas.",
+        "Actualización de piezas (hardware) para darle más años de vida útil a tu equipo actual.",
+        "Instalación limpia de Windows y todos los programas básicos que necesitas para tu oficina o escuela."
+      ],
+      "tecnologias": ["Hardware", "Windows"]
     },
     {
-      "area": "Ciberseguridad & Forense",
+      "area": "Vacuna Antivirus",
       "icono": "ph-shield-check",
       "servicios": [
-        "Localización, aislamiento y remoción forzada de agentes patógenos y virus complejos en almacenamiento local.",
-        "Extracción crítica forense y restauración de archivos lógicos perdidos o eliminados en dispositivos dañados."
-      ]
+        "Limpieza profunda de virus y programas espía que ponen en riesgo tu información y vuelven lenta tu máquina.",
+        "Rescate de archivos ocultos o borrados en memorias USB dañadas o discos duros.",
+        "Instalación de protección definitiva para que navegues por internet con tranquilidad."
+      ],
+      "tecnologias": ["Seguridad", "Software"]
     },
     {
-      "area": "Arquitectura de Soluciones",
-      "icono": "ph-cpu",
+      "area": "Redes Wi-Fi",
+      "icono": "ph-wifi-high",
       "servicios": [
-        "Análisis y diseño de alternativas tecnológicas no convencionales adaptadas estrictamente al presupuesto y necesidades extremas de optimización."
-      ]
+        "Mejora de señal de internet para que el Wi-Fi llegue a todas las habitaciones y rincones sin cortes.",
+        "Diseño de redes para oficinas, conectando de forma segura múltiples computadoras, impresoras y cajas registradoras."
+      ],
+      "tecnologias": ["Redes", "Routers"]
+    },
+    {
+      "area": "Control de Accesos",
+      "icono": "ph-lock-key",
+      "servicios": [
+        "Instalación de torniquetes y cerraduras electrónicas que abren con huella digital, rostro o tarjeta.",
+        "Configuración del sistema para llevar el registro exacto y automático de asistencia de tus empleados."
+      ],
+      "tecnologias": ["Torniquetes", "Biometría"]
+    },
+    {
+      "area": "Cámaras de Seguridad",
+      "icono": "ph-video-camera",
+      "servicios": [
+        "Instalación de cámaras de videovigilancia de alta definición (CCTV).",
+        "Configuración remota para que vigiles tu negocio o casa en vivo desde tu celular en cualquier lugar."
+      ],
+      "tecnologias": ["CCTV", "Seguridad"]
+    },
+    {
+      "area": "Bases de Datos Seguras",
+      "icono": "ph-database",
+      "servicios": [
+        "Diseño de bases de datos blindadas para organizar tu inventario, ventas y datos de clientes.",
+        "Sistemas de respaldo automático en la nube para que jamás pierdas la información vital de tu negocio ante accidentes."
+      ],
+      "tecnologias": ["Nube", "Bases de Datos"]
     }
   ]
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     initTickers();
-    startClock();
-    renderProjects();
-    renderServices();
-    initScrollAnimations();
-    initModals();
-    initAntonHover();
-    initBadgeHover();
-    initTriangleSpin();
-    initEasterEgg();
+    // startClock();
+    // renderProjects();
+    // renderServices();
+    // initScrollAnimations();
+    // initModals();
+    // initAntonHover();
+    // initBadgeHover();
+    // initTriangleSpin();
+    initAccordionModals();
+    initColorblindMode();
     initStarfield();
-    initKojimaCredits();
-    initSpotlightHover();
+    initTaskii();
+    initBootSequence();
 });
+
+function initAccordionModals() {
+    const cols = document.querySelectorAll('.clickable-col');
+    cols.forEach(col => {
+        col.addEventListener('click', (e) => {
+            if (e.target.closest('#side-badge')) return;
+            const id = col.id;
+            if (id === 'col-ghostline') openFilteredServicesModal('red');
+            else if (id === 'col-mobile') openFilteredProjectsModal('mobile');
+            else if (id === 'col-bdd') openFilteredServicesModal('bdd');
+        });
+    });
+
+    const overlay = document.getElementById('modal-overlay');
+    const closeBtn = document.getElementById('modal-close');
+    
+    const closeModal = () => {
+        overlay.classList.remove('active');
+        document.querySelectorAll('.ticker-content').forEach(t => t.style.animationPlayState = 'running');
+    };
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+function openFilteredProjectsModal(filterType) {
+    if (typeof portfolioData === 'undefined') return;
+    let title = "PÁGINAS WEB Y APPS";
+    let items = portfolioData.repositorio_proyectos;
+    openSplitModal(title, items, 'project');
+}
+
+function initColorblindMode() {
+    const btn = document.getElementById('btn-colorblind');
+    if (!btn) return;
+
+    // Load preference
+    const isColorblind = localStorage.getItem('colorblind-mode') === 'true';
+    if (isColorblind) {
+        document.body.classList.add('colorblind-mode');
+    }
+
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('colorblind-mode');
+        const isActive = document.body.classList.contains('colorblind-mode');
+        localStorage.setItem('colorblind-mode', isActive);
+    });
+}
+
+function openFilteredServicesModal(filterType) {
+    if (typeof portfolioData === 'undefined') return;
+    let title = "SERVICIOS";
+    let items = portfolioData.servicios_infraestructura;
+    if (filterType === 'bdd') {
+        title = "SEGURIDAD Y CONTROL";
+        items = items.filter(s => s.area.includes("Accesos") || s.area.includes("Cámaras") || s.area.includes("Bases"));
+    } else if (filterType === 'red') {
+        title = "SOPORTE Y MANTENIMIENTO";
+        items = items.filter(s => !s.area.includes("Accesos") && !s.area.includes("Cámaras") && !s.area.includes("Bases"));
+    }
+    openSplitModal(title, items, 'service');
+}
+
+function openSplitModal(title, items, type) {
+    const body = document.getElementById('modal-body');
+    body.innerHTML = `
+        <div class="cinematic-layout" id="cinematic-layout">
+            <div class="cinematic-nav-pane">
+                <div class="cinematic-nav-header">${title}</div>
+                <div class="cinematic-nav-list" id="modal-nav-list"></div>
+            </div>
+            <div class="cinematic-detail-pane" id="modal-detail-pane">
+                <div style="display:flex; height:100%; align-items:center; justify-content:center; opacity:0.6; font-size:1.5rem; font-family:var(--font-heading);">
+                    Cargando información...
+                </div>
+            </div>
+            <button class="mobile-back-btn" id="mobile-back-btn">← VOLVER A LA LISTA</button>
+        </div>
+    `;
+
+    const navList = document.getElementById('modal-nav-list');
+    const detailPane = document.getElementById('modal-detail-pane');
+
+    items.forEach((item, index) => {
+        const navItem = document.createElement('div');
+        navItem.className = 'cinematic-nav-item';
+        
+        let navTitle = type === 'project' ? item.nombre : item.area;
+        let navMeta = type === 'project' ? `[${item.id.toUpperCase()}]` : `PROTOCOLO: ${item.icono.replace('ph-','')}`;
+        
+        navItem.innerHTML = `
+            <div class="cinematic-nav-meta">${navMeta}</div>
+            <div class="cinematic-nav-title">${navTitle}</div>
+        `;
+        
+        navItem.addEventListener('click', () => {
+            document.querySelectorAll('.cinematic-nav-item').forEach(el => el.classList.remove('active'));
+            navItem.classList.add('active');
+            renderDetailPane(item, type, detailPane);
+            const layout = document.getElementById('cinematic-layout');
+            if (layout) layout.classList.add('viewing-detail');
+        });
+        
+        navList.appendChild(navItem);
+    });
+
+    document.getElementById('mobile-back-btn').addEventListener('click', () => {
+        const layout = document.getElementById('cinematic-layout');
+        if (layout) layout.classList.remove('viewing-detail');
+    });
+
+    document.getElementById('modal-overlay').classList.add('active');
+    
+    if(items.length > 0 && window.innerWidth > 900) {
+        navList.firstChild.click();
+    }
+}
+
+function renderDetailPane(item, type, container) {
+    container.style.transition = 'opacity 0.2s ease, filter 0.2s ease';
+    container.style.opacity = '0';
+    container.style.filter = 'blur(10px)';
+    
+    setTimeout(() => {
+        let html = '';
+        if (type === 'project') {
+            html = `
+                <div class="cinematic-content spotlight-card animate-fade-up" style="padding: 2rem; border-radius: 12px;">
+                    <div class="c-header-block">
+                        <div class="c-tags">
+                            <span class="c-tag">ESTADO: ${item.estado}</span>
+                            <span class="c-tag">ENTORNO: ${item.entornos[0]}</span>
+                            <span class="c-tag" style="border-color:var(--c-teal); color:var(--c-teal);">[ ${item.categoria} ]</span>
+                        </div>
+                        <h1 class="c-giant-title">${item.nombre}</h1>
+                        <p class="c-description" style="font-family: var(--font-heading);">${item.descripcion}</p>
+                    </div>
+                    
+                    <div class="c-grid">
+                        <div class="c-section">
+                            <h3 class="c-section-title">// ETIQUETAS</h3>
+                            <div class="c-tech-list">
+                                ${item.tecnologias.map(t => `<span class="c-tech-badge">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="c-section">
+                            <h3 class="c-section-title">// ESPECIFICACIONES</h3>
+                            <ul class="c-specs-list">
+                                ${item.caracteristicas_tecnicas.map(f => `<li>${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            html = `
+                <div class="cinematic-content spotlight-card animate-fade-up" style="padding: 2rem; border-radius: 12px;">
+                    <div class="c-header-block">
+                        <div class="c-tags"><span class="c-tag">PROTOCOLO ACTIVO</span></div>
+                        <h1 class="c-giant-title"><i class="ph-bold ${item.icono}"></i> ${item.area}</h1>
+                    </div>
+                    
+                    <div class="c-grid">
+                        <div class="c-section">
+                            <h3 class="c-section-title">// SERVICIOS</h3>
+                            <ul class="c-specs-list">
+                                ${item.servicios.map((s, i) => `<li><strong style="color:var(--c-teal);">[T_0${i+1}]</strong> ${s}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="c-section">
+                            <h3 class="c-section-title">// ETIQUETAS</h3>
+                            <div class="c-tech-list">
+                                ${item.tecnologias.map(t => `<span class="c-tech-badge">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        container.innerHTML = html;
+        container.style.filter = 'none';
+        container.style.transition = 'opacity 0.1s ease';
+        container.style.opacity = '1';
+        
+        // Trigger scramble on giant title
+        container.querySelectorAll('.scramble-target').forEach(el => scrambleText(el));
+    }, 200);
+}
 
 async function initTickers() {
     const dateOpts = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
@@ -261,7 +455,7 @@ function initModals() {
             
             // Calculate text lengths to dynamically distribute flex-grow
             const textBlueLen = proj.descripcion.length + proj.tecnologias.join(' ').length;
-            const textBeigeLen = proj.caracteristicas_tecnicas.join(' ').length;
+            const textBeigeLen = proj.caracteristicas_tecnicas.length;
             
             body.innerHTML = `
                 <div class="jigsaw-grid">
@@ -339,6 +533,31 @@ function initBadgeHover() {
     });
 }
 
+function initProfileHover() {
+    const col = document.getElementById('col-profile');
+    if (!col) return;
+    
+    col.addEventListener('mousemove', (e) => {
+        const rect = col.getBoundingClientRect();
+        col.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        col.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+    
+    col.addEventListener('mouseenter', () => col.style.setProperty('--r', '150%'));
+    col.addEventListener('mouseleave', () => col.style.setProperty('--r', '0px'));
+}
+
+function initSpotlightHover() {
+    document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.spotlight-card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+    });
+}
+
 function initTriangleSpin() {
     const triangle = document.querySelector('.concentric-triangle');
     if (!triangle) return;
@@ -386,86 +605,6 @@ function initTriangleSpin() {
     });
 }
 
-function initEasterEgg() {
-    // 1. Konami Code (PC)
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-    let konamiIndex = 0;
-    document.addEventListener('keydown', (e) => {
-        if (e.key.toLowerCase() === konamiCode[konamiIndex].toLowerCase() || e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                triggerEasterEgg();
-                konamiIndex = 0;
-            }
-        } else {
-            konamiIndex = 0;
-        }
-    });
-
-    // 2. Mobile Taps (3 taps on pseudonym)
-    const nameEl = document.querySelector('.animated-name');
-    let tapCount = 0;
-    let tapTimeout;
-    if (nameEl) {
-        nameEl.addEventListener('click', () => {
-            tapCount++;
-            clearTimeout(tapTimeout);
-            if (tapCount >= 3) {
-                triggerEasterEgg();
-                tapCount = 0;
-            } else {
-                tapTimeout = setTimeout(() => { tapCount = 0; }, 500);
-            }
-        });
-    }
-
-    // 3. Exit Override
-    const exitBtn = document.getElementById('gp-exit');
-    if (exitBtn) {
-        exitBtn.addEventListener('click', () => {
-            document.querySelector('.wireframe-container').classList.remove('system-override');
-            document.getElementById('gamepad-tester').classList.add('hidden');
-            if (gpLoopId) cancelAnimationFrame(gpLoopId);
-
-            // Clear stick canvases
-            ['stick-canvas-l', 'stick-canvas-r'].forEach(id => {
-                const cvs = document.getElementById(id);
-                if (cvs && cvs.getContext) cvs.getContext('2d').clearRect(0, 0, 120, 120);
-            });
-        });
-    }
-
-    // 4. Test Haptics
-    const vibBtn = document.getElementById('gp-vibrate');
-    if (vibBtn) {
-        vibBtn.addEventListener('click', () => {
-            const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-            let gp = null;
-            for(let i = 0; i < gamepads.length; i++) {
-                if(gamepads[i] !== null) { gp = gamepads[i]; break; }
-            }
-            if (gp && gp.vibrationActuator) {
-                gp.vibrationActuator.playEffect("dual-rumble", {
-                    startDelay: 0,
-                    duration: 500,
-                    weakMagnitude: 1.0,
-                    strongMagnitude: 1.0
-                });
-            }
-        });
-    }
-    // 5. Gamepad Connection Events
-    window.addEventListener("gamepadconnected", (e) => {
-        console.log("Gamepad connected", e.gamepad);
-        const rawData = document.getElementById('gp-raw-data');
-        if (rawData) rawData.textContent = `[EVENT] Gamepad connected: ${e.gamepad.id}\nWaiting for data stream...`;
-    });
-    window.addEventListener("gamepaddisconnected", (e) => {
-        console.log("Gamepad disconnected", e.gamepad);
-        const idText = document.getElementById('gp-id');
-        if (idText) idText.textContent = "CONNECTION LOST";
-    });
-}
 
 function initStarfield() {
     const canvas = document.getElementById('starfield');
@@ -591,111 +730,6 @@ function initStarfield() {
     animate();
 }
 
-let gpLoopId;
-let pollCount = 0;
-function triggerEasterEgg() {
-    document.querySelector('.wireframe-container').classList.add('system-override');
-    document.getElementById('gamepad-tester').classList.remove('hidden');
-    gpLoopId = requestAnimationFrame(gamepadLoop);
-}
-
-function gamepadLoop() {
-    pollCount++;
-    const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-    let gp = null;
-    for(let i = 0; i < gamepads.length; i++) {
-        if(gamepads[i] !== null && gamepads[i] !== undefined) {
-            gp = gamepads[i];
-            break;
-        }
-    }
-    
-    const idText = document.getElementById('gp-id');
-    const rawData = document.getElementById('gp-raw-data');
-
-    if (!gp) {
-        if (idText) idText.textContent = "AWAITING CONNECTION... PRESS ANY BUTTON";
-        if (rawData && rawData.textContent.includes("Waiting")) {
-            const dots = ['.  ', '.. ', '...'][(Math.floor(pollCount/15) % 3)];
-            rawData.textContent = `Waiting for input stream${dots}\n(Browser is actively polling hardware)`;
-        }
-    } else {
-        if (idText) idText.textContent = `CONNECTED: ${gp.id}`;
-        
-        let telemetry = `Timestamp: ${gp.timestamp.toFixed(2)}\n`;
-        telemetry += `Axes: ${gp.axes.length}\nButtons: ${gp.buttons.length}\n\n`;
-
-        // Standard Gamepad Mapping
-        for(let i = 0; i < gp.buttons.length; i++) {
-            const b = gp.buttons[i];
-            const btnEl = document.getElementById(`btn-${i}`);
-            if (btnEl) {
-                if (b.pressed) btnEl.classList.add('active');
-                else btnEl.classList.remove('active');
-            }
-            
-            // Analog Triggers
-            if (i === 6) {
-                const fillL = document.getElementById('trig-fill-l');
-                if (fillL) fillL.style.height = `${b.value * 100}%`;
-            }
-            if (i === 7) {
-                const fillR = document.getElementById('trig-fill-r');
-                if (fillR) fillR.style.height = `${b.value * 100}%`;
-            }
-            telemetry += `BTN ${i}: ${b.pressed ? '1' : '0'} (Val: ${b.value.toFixed(2)})\n`;
-        }
-
-        telemetry += `\n`;
-
-        // Axes (Standard: 0=LX, 1=LY, 2=RX, 3=RY)
-        if (gp.axes.length >= 4) {
-            // Apply a small deadzone for visual stick rendering so it doesn't drift
-            const applyDeadzone = (val) => Math.abs(val) < 0.05 ? 0 : val;
-            
-            const lx = applyDeadzone(gp.axes[0]);
-            const ly = applyDeadzone(gp.axes[1]);
-            const rx = applyDeadzone(gp.axes[2]);
-            const ry = applyDeadzone(gp.axes[3]);
-
-            telemetry += `AXIS 0 (LX): ${gp.axes[0].toFixed(4)}\n`;
-            telemetry += `AXIS 1 (LY): ${gp.axes[1].toFixed(4)}\n`;
-            telemetry += `AXIS 2 (RX): ${gp.axes[2].toFixed(4)}\n`;
-            telemetry += `AXIS 3 (RY): ${gp.axes[3].toFixed(4)}\n`;
-
-            const sLeft = document.getElementById('stick-left');
-            const sRight = document.getElementById('stick-right');
-            const cLeft = document.getElementById('coords-left');
-            const cRight = document.getElementById('coords-right');
-
-            if (sLeft) sLeft.style.transform = `translate(${lx * 45}px, ${ly * 45}px)`;
-            if (sRight) sRight.style.transform = `translate(${rx * 45}px, ${ry * 45}px)`;
-            if (cLeft) cLeft.innerHTML = `X: ${lx.toFixed(2)}<br>Y: ${ly.toFixed(2)}`;
-            if (cRight) cRight.innerHTML = `X: ${rx.toFixed(2)}<br>Y: ${ry.toFixed(2)}`;
-
-            // Draw Trails for Circularity Test
-            const drawTrail = (canvasId, cx, cy) => {
-                const canvas = document.getElementById(canvasId);
-                if (canvas && canvas.getContext) {
-                    const ctx = canvas.getContext('2d');
-                    ctx.fillStyle = 'rgba(226, 183, 20, 0.6)'; // accent-yellow trail
-                    ctx.beginPath();
-                    const px = (cx + 1) * 60;
-                    const py = (cy + 1) * 60;
-                    ctx.arc(px, py, 1.5, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            };
-            drawTrail('stick-canvas-l', lx, ly);
-            drawTrail('stick-canvas-r', rx, ry);
-        }
-
-        if (rawData) rawData.textContent = telemetry;
-    }
-
-    gpLoopId = requestAnimationFrame(gamepadLoop);
-}
-
 function initKojimaCredits() {
     const s1 = "color: #3E6868; font-size: 10px; font-weight: bold; font-family: monospace; display: block; margin-top: 10px;";
     const s2 = "color: #C1AB85; font-size: 18px; font-weight: 900; font-family: 'Arial Black', sans-serif; display: block; text-transform: uppercase; letter-spacing: 2px;";
@@ -736,4 +770,574 @@ function initSpotlightHover() {
     };
     attachSpotlight('projects-container');
     attachSpotlight('services-container');
+}
+
+function initTerminal() {
+    const term = document.getElementById('terminal-window');
+    const termClose = document.getElementById('term-close');
+    const termInput = document.getElementById('term-input');
+    const termOutput = document.getElementById('term-output');
+    const termHeader = document.getElementById('term-header');
+
+    if (!term) return;
+
+    const toggleTerminal = () => {
+        term.classList.toggle('hidden');
+        if (!term.classList.contains('hidden')) termInput.focus();
+    };
+
+    if (termClose) termClose.addEventListener('click', toggleTerminal);
+
+    const sideBadge = document.getElementById('side-badge');
+    if (sideBadge) sideBadge.addEventListener('click', toggleTerminal);
+    
+    const smallTermBtn = document.getElementById('small-term-btn');
+    if (smallTermBtn) smallTermBtn.addEventListener('click', toggleTerminal);
+
+    let keyBuffer = '';
+    document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key.toLowerCase() === 'p') {
+            e.preventDefault();
+            toggleTerminal();
+        }
+        if (e.key.length === 1) {
+            keyBuffer += e.key.toLowerCase();
+            if (keyBuffer.length > 3) keyBuffer = keyBuffer.slice(-3);
+            if (keyBuffer === 'cmd') {
+                toggleTerminal();
+                keyBuffer = '';
+            }
+        }
+    });
+
+    let isDragging = false, startX, startY, initialX, initialY;
+    termHeader.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX; startY = e.clientY;
+        const rect = term.getBoundingClientRect();
+        initialX = rect.left; initialY = rect.top;
+        term.style.bottom = 'auto'; term.style.right = 'auto';
+        term.style.left = initialX + 'px'; term.style.top = initialY + 'px';
+    });
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        term.style.left = (initialX + (e.clientX - startX)) + 'px';
+        term.style.top = (initialY + (e.clientY - startY)) + 'px';
+    });
+    document.addEventListener('mouseup', () => isDragging = false);
+
+    const printMsg = (msg, colorClass = '') => {
+        const div = document.createElement('div');
+        if (colorClass) div.classList.add(colorClass);
+        div.innerHTML = msg;
+        termOutput.appendChild(div);
+        termOutput.parentElement.scrollTop = termOutput.parentElement.scrollHeight;
+    };
+
+    termInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const val = termInput.value.trim();
+            if (!val) return;
+            printMsg(`<span class="term-prompt">user@system:~$</span> ${val}`);
+            termInput.value = '';
+
+            const cmd = val.toLowerCase();
+            switch (cmd) {
+                case 'help':
+                    printMsg('Comandos disponibles:', 'term-color-teal');
+                    printMsg('  help, whoami, skills, projects, services, echo, iwannabehacker, clear');
+                    break;
+                case 'whoami': printMsg('Identidad: Desarrollador', 'term-color-coral'); break;
+                case 'skills': printMsg('Python, JS, Godot, Flutter', 'term-color-teal'); break;
+                case 'projects': printMsg('Modales activos. Verifica la interfaz.', 'term-color-teal'); break;
+                case 'services': printMsg('Servicios de arquitectura funcionales.', 'term-color-teal'); break;
+                case 'clear': termOutput.innerHTML = ''; break;
+                case 'iwannabehacker':
+                    let c=0;
+                    const it = setInterval(() => {
+                        printMsg(Math.random().toString(36).substring(2), 'term-color-teal');
+                        if(++c>20) { clearInterval(it); printMsg('ACCESO DENEGADO', 'term-color-coral'); }
+                    },50);
+                    break;
+                default: printMsg(`Comando no encontrado: ${val}`, 'term-color-coral');
+            }
+        }
+    });
+}
+
+// Utility Functions
+function scrambleText(element) {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+    let iterations = 0;
+    const originalText = element.dataset.originalValue || element.innerText;
+    element.dataset.originalValue = originalText;
+    
+    clearInterval(element.scrambleInterval);
+    
+    element.scrambleInterval = setInterval(() => {
+        element.innerText = originalText.split("")
+            .map((letter, index) => {
+                if(index < iterations) return originalText[index];
+                if(letter === ' ') return ' ';
+                return letters[Math.floor(Math.random() * letters.length)];
+            })
+            .join("");
+        
+        if(iterations >= originalText.length) clearInterval(element.scrambleInterval);
+        
+        iterations += 1 / 3;
+    }, 30);
+}
+
+// ============================================
+// TASKII CHATBOT LOGIC
+// ============================================
+
+const taskiiBrain = {
+    start: {
+        msg: "¡Hola! Soy Taskii, el asistente virtual de ANTON. ¿En qué área buscas soluciones hoy?",
+        options: [
+            { text: "🖥️ Soporte Técnico", next: "soporte" },
+            { text: "🌐 Páginas Web o Apps", next: "web" },
+            { text: "🔒 Seguridad y Control", next: "seguridad" }
+        ]
+    },
+    // SOPORTE
+    soporte: {
+        msg: "Entendido. ¿El problema es físico (hardware), de programas (software/virus), o de conexión (internet)?",
+        options: [
+            { text: "Físico (No enciende, ruido raro, lenta)", next: "hardware_detalle" },
+            { text: "Programas (Virus, Windows, Office)", next: "software_detalle" },
+            { text: "Redes (Wi-Fi, Cableado)", next: "red_detalle" }
+        ]
+    },
+    hardware_detalle: {
+        msg: "¿Es una PC de Escritorio o una Laptop?",
+        options: [
+            { text: "PC de Escritorio", next: "contact_hardware_pc" },
+            { text: "Laptop", next: "contact_hardware_lap" }
+        ]
+    },
+    software_detalle: {
+        msg: "¿Necesitas instalar programas nuevos o limpiar el equipo de lentitud/virus?",
+        options: [
+            { text: "Instalar Programas / Windows", next: "contact_software_inst" },
+            { text: "Limpieza y Antivirus", next: "contact_software_clean" }
+        ]
+    },
+    red_detalle: {
+        msg: "¿El problema es en tu casa o en una oficina/negocio?",
+        options: [
+            { text: "Casa", next: "contact_red_casa" },
+            { text: "Oficina/Negocio", next: "contact_red_oficina" }
+        ]
+    },
+    // WEB
+    web: {
+        msg: "¡Excelente! ¿Buscas crear un proyecto desde cero o modernizar uno existente?",
+        options: [
+            { text: "Proyecto Nuevo (Desde cero)", next: "web_nuevo" },
+            { text: "Renovar / Arreglar uno existente", next: "contact_web_fix" },
+            { text: "App Móvil (Android/iOS)", next: "contact_app" }
+        ]
+    },
+    web_nuevo: {
+        msg: "¿Qué tipo de página necesitas?",
+        options: [
+            { text: "Página Informativa (Portafolio, Servicios)", next: "contact_web_info" },
+            { text: "Tienda Online (E-commerce)", next: "contact_web_store" },
+            { text: "Sistema a Medida (Administración)", next: "contact_web_sys" }
+        ]
+    },
+    // SEGURIDAD
+    seguridad: {
+        msg: "La seguridad es vital. ¿Qué necesitas implementar en tu negocio?",
+        options: [
+            { text: "Cámaras de Vigilancia", next: "cam_detalle" },
+            { text: "Control de Accesos (Huella/Torniquetes)", next: "contact_acc" },
+            { text: "Bases de Datos Seguras", next: "contact_db" }
+        ]
+    },
+    cam_detalle: {
+        msg: "¿Cuántas cámaras estimas que necesitas?",
+        options: [
+            { text: "De 1 a 4 cámaras", next: "contact_cam_small" },
+            { text: "5 o más cámaras", next: "contact_cam_large" }
+        ]
+    },
+    // TERMINALES DE CONTACTO (Con Input de Texto)
+    contact_hardware_pc: { 
+        msg: "Perfecto. Por favor, describe brevemente qué le sucede a la PC de escritorio (ej. hace ruidos, pantalla azul, no enciende).", 
+        options: [], 
+        input: { placeholder: "Escribe aquí los detalles del problema y alguna forma de contacto, no te preocupes tus datos estan seguros", action: "mailto:anton@ejemplo.com?subject=Soporte%20PC%20Escritorio" } 
+    },
+    contact_hardware_lap: { 
+        msg: "Entendido. ¿Me podrías detallar la falla de tu Laptop y si sabes el modelo?", 
+        options: [], 
+        input: { placeholder: "Ej. Es una HP y calienta mucho...", action: "mailto:anton@ejemplo.com?subject=Soporte%20Laptop" } 
+    },
+    contact_software_inst: { 
+        msg: "Claro, ¿qué programas específicos o versión de Windows necesitas que instalemos?", 
+        options: [], 
+        input: { placeholder: "Ej. Necesito Office y Windows 11...", action: "mailto:anton@ejemplo.com?subject=Instalacion%20Software" } 
+    },
+    contact_software_clean: { 
+        msg: "Dejaremos tu equipo rápido. ¿Notas que se abren ventanas solas o solo va muy lenta?", 
+        options: [], 
+        input: { placeholder: "Ej. Tarda 10 minutos en iniciar...", action: "mailto:anton@ejemplo.com?subject=Limpieza%20Virus" } 
+    },
+    contact_red_casa: { 
+        msg: "Mejoraremos el WiFi. ¿En qué áreas de tu casa no llega bien la señal?", 
+        options: [], 
+        input: { placeholder: "Ej. En el segundo piso no hay internet...", action: "mailto:anton@ejemplo.com?subject=Red%20Casa" } 
+    },
+    contact_red_oficina: { 
+        msg: "Evaluaremos tu red. ¿Cuántos equipos aproximados se conectan en tu oficina?", 
+        options: [], 
+        input: { placeholder: "Ej. Somos 15 computadoras...", action: "mailto:anton@ejemplo.com?subject=Red%20Oficina" } 
+    },
+    
+    contact_web_fix: { 
+        msg: "Genial. ¿Qué es lo que más te gustaría cambiar o mejorar de tu proyecto actual?", 
+        options: [], 
+        input: { placeholder: "Ej. Se ve muy vieja y carga lento...", action: "mailto:anton@ejemplo.com?subject=Renovacion%20Web" } 
+    },
+    contact_app: { 
+        msg: "Una app móvil requiere planificación. ¿Para qué servirá principalmente la app?", 
+        options: [], 
+        input: { placeholder: "Ej. Para que mis clientes agenden citas...", action: "mailto:anton@ejemplo.com?subject=App%20Movil" } 
+    },
+    contact_web_info: { 
+        msg: "Una web informativa es clave. ¿De qué trata tu negocio o emprendimiento?", 
+        options: [], 
+        input: { placeholder: "Ej. Soy abogado y quiero mostrar mis servicios...", action: "mailto:anton@ejemplo.com?subject=Web%20Informativa" } 
+    },
+    contact_web_store: { 
+        msg: "Vender en línea revolucionará tu negocio. ¿Qué tipo de productos vendes?", 
+        options: [], 
+        input: { placeholder: "Ej. Vendo ropa y zapatos...", action: "mailto:anton@ejemplo.com?subject=Tienda%20Online" } 
+    },
+    contact_web_sys: { 
+        msg: "Los sistemas automatizan tu trabajo. ¿Qué proceso manual quieres reemplazar?", 
+        options: [], 
+        input: { placeholder: "Ej. Llevo el inventario en libretas...", action: "mailto:anton@ejemplo.com?subject=Sistema%20A%20Medida" } 
+    },
+    
+    contact_cam_small: { 
+        msg: "Un kit básico es perfecto. ¿Es para interior o exterior?", 
+        options: [], 
+        input: { placeholder: "Ej. Son 2 para afuera y 1 adentro...", action: "mailto:anton@ejemplo.com?subject=Camaras%20Basico" } 
+    },
+    contact_cam_large: { 
+        msg: "Proyectos grandes requieren visita técnica. ¿Dónde se ubican las instalaciones?", 
+        options: [], 
+        input: { placeholder: "Ej. Es una bodega en el centro...", action: "mailto:anton@ejemplo.com?subject=Camaras%20Avanzado" } 
+    },
+    contact_acc: { 
+        msg: "El control de accesos es vital. ¿Quieres abrir con huella, tarjeta o clave?", 
+        options: [], 
+        input: { placeholder: "Ej. Huella para 20 empleados...", action: "mailto:anton@ejemplo.com?subject=Control%20Accesos" } 
+    },
+    contact_db: { 
+        msg: "Tus datos estarán blindados. ¿Qué tipo de información necesitas almacenar?", 
+        options: [], 
+        input: { placeholder: "Ej. Datos de clientes e historial médico...", action: "mailto:anton@ejemplo.com?subject=Bases%20de%20Datos" } 
+    }
+};
+
+let taskiiHistory = [];
+let taskiiPathText = [];
+
+function initTaskii() {
+    const btnChat = document.getElementById('btn-chat');
+    const overlay = document.getElementById('chat-overlay');
+    const closeBtn = document.getElementById('chat-close');
+    const msgsContainer = document.getElementById('chat-messages');
+
+    if (!btnChat || !overlay) return;
+
+    btnChat.addEventListener('click', () => {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (msgsContainer.children.length === 0) {
+            taskiiHistory = [];
+            taskiiPathText = [];
+            renderTaskiiStep('start');
+        }
+    });
+
+    const closeModal = () => {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+}
+
+function scrambleTextTaskii(element, originalText) {
+    const chars = '!<>-_\\\\/[]{}—=+*^?#_';
+    let frame = 0;
+    const queue = [];
+    for (let i = 0; i < originalText.length; i++) {
+        const char = originalText[i];
+        if (char === ' ') {
+            queue.push({ char, start: 0, end: 0 });
+            continue;
+        }
+        const start = Math.floor(Math.random() * 40);
+        const end = start + Math.floor(Math.random() * 40);
+        queue.push({ char, start, end });
+    }
+
+    let frameReq;
+    const update = () => {
+        let output = '';
+        let complete = 0;
+        for (let i = 0; i < queue.length; i++) {
+            let { char, start, end } = queue[i];
+            if (frame >= end) {
+                complete++;
+                output += char;
+            } else if (frame >= start) {
+                output += chars[Math.floor(Math.random() * chars.length)];
+            } else {
+                output += '';
+            }
+        }
+        element.textContent = output;
+        if (complete === queue.length) {
+            cancelAnimationFrame(frameReq);
+        } else {
+            frameReq = requestAnimationFrame(update);
+            frame++;
+        }
+    };
+    update();
+}
+
+function renderTaskiiStep(stepId, userText = null, isBack = false) {
+    const msgsContainer = document.getElementById('chat-messages');
+    const optsContainer = document.getElementById('chat-options');
+    
+    // Disable current options to prevent double clicking
+    optsContainer.innerHTML = '';
+
+    if (userText) {
+        const userDiv = document.createElement('div');
+        userDiv.className = 'chat-msg user-msg';
+        userDiv.textContent = userText;
+        msgsContainer.appendChild(userDiv);
+        msgsContainer.scrollTop = msgsContainer.scrollHeight;
+    }
+
+    const stepData = taskiiBrain[stepId];
+    
+    // Add bot message with delay for typing feel
+    setTimeout(() => {
+        const botDiv = document.createElement('div');
+        botDiv.className = 'chat-msg bot-msg';
+        msgsContainer.appendChild(botDiv);
+        
+        scrambleTextTaskii(botDiv, stepData.msg);
+        msgsContainer.scrollTop = msgsContainer.scrollHeight;
+
+        // Add options after message finishes scrambling (approx 1000ms)
+        setTimeout(() => {
+            optsContainer.innerHTML = '';
+            
+            if (stepData.options) {
+                stepData.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'chat-option-btn';
+                    btn.textContent = opt.text;
+                    btn.addEventListener('click', () => {
+                        if (opt.next) {
+                            taskiiHistory.push(stepId);
+                            taskiiPathText.push(opt.text);
+                            renderTaskiiStep(opt.next, opt.text);
+                        } else if (opt.link) {
+                            window.location.href = opt.link;
+                        }
+                    });
+                    optsContainer.appendChild(btn);
+                });
+            }
+            
+            // Render Input if exists
+            if (stepData.input) {
+                const wrapper = document.createElement('div');
+                wrapper.style.display = 'flex';
+                wrapper.style.flexDirection = 'column';
+                wrapper.style.gap = '0.5rem';
+
+                const textarea = document.createElement('textarea');
+                textarea.placeholder = stepData.input.placeholder;
+                textarea.style.width = '100%';
+                textarea.style.minHeight = '80px';
+                textarea.style.padding = '0.8rem';
+                textarea.style.background = 'rgba(0,0,0,0.5)';
+                textarea.style.border = '1px solid rgba(193,171,133,0.3)';
+                textarea.style.color = '#fff';
+                textarea.style.borderRadius = '5px';
+                textarea.style.fontFamily = 'inherit';
+                textarea.style.resize = 'vertical';
+                textarea.style.outline = 'none';
+
+                const sendBtn = document.createElement('button');
+                sendBtn.className = 'chat-option-btn';
+                sendBtn.textContent = '📩 Enviar Descripción';
+                sendBtn.style.background = 'var(--c-teal)';
+                sendBtn.style.color = '#000';
+                sendBtn.style.fontWeight = 'bold';
+
+                sendBtn.addEventListener('click', async () => {
+                    const userDesc = textarea.value.trim() || "(El usuario no proporcionó detalles adicionales. Revisa la ruta de navegación para ver su problema).";
+
+                    // Extract subject from the mailto action for context
+                    const subjectMatch = stepData.input.action.match(/subject=([^&]*)/);
+                    const subject = subjectMatch ? decodeURIComponent(subjectMatch[1]) : "Consulta Taskii";
+
+                    sendBtn.textContent = '⏳ Transmitiendo Datos...';
+                    sendBtn.style.opacity = '0.7';
+                    sendBtn.disabled = true;
+
+                    try {
+                        const response = await fetch("https://formspree.io/f/mojoagyg", {
+                            method: "POST",
+                            headers: {
+                                "Accept": "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                _subject: subject, // Formspree uses _subject for email subject
+                                Ruta_de_Dialogo: taskiiPathText.join(" ➔ "),
+                                Mensaje: userDesc,
+                                Origen: "Asistente Virtual Taskii"
+                            })
+                        });
+
+                        if (response.ok) {
+                            // Add user message to chat
+                            const uDiv = document.createElement('div');
+                            uDiv.className = 'chat-msg user-msg';
+                            uDiv.textContent = userDesc !== "(El usuario no proporcionó detalles adicionales. Revisa la ruta de navegación para ver su problema)." ? userDesc : "(Datos de diagnóstico enviados)";
+                            msgsContainer.appendChild(uDiv);
+                            
+                            optsContainer.innerHTML = '';
+                            
+                            setTimeout(() => {
+                                const bDiv = document.createElement('div');
+                                bDiv.className = 'chat-msg bot-msg';
+                                msgsContainer.appendChild(bDiv);
+                                scrambleTextTaskii(bDiv, "¡Datos transmitidos con éxito! Anton ha recibido tu consulta directamente en su bandeja y se comunicará pronto.");
+                                msgsContainer.scrollTop = msgsContainer.scrollHeight;
+                                
+                                setTimeout(() => {
+                                    const restartBtn = document.createElement('button');
+                                    restartBtn.className = 'chat-option-btn';
+                                    restartBtn.textContent = '🔄 Nueva Consulta';
+                                    restartBtn.addEventListener('click', () => {
+                                        taskiiHistory = [];
+                                        taskiiPathText = [];
+                                        msgsContainer.innerHTML = '';
+                                        renderTaskiiStep('start');
+                                    });
+                                    optsContainer.appendChild(restartBtn);
+                                    msgsContainer.scrollTop = msgsContainer.scrollHeight;
+                                }, 1200);
+                            }, 500);
+                        } else {
+                            throw new Error("Respuesta no OK de Formspree");
+                        }
+                    } catch (error) {
+                        sendBtn.textContent = '❌ Fallo de Conexión. Reintentar';
+                        sendBtn.style.opacity = '1';
+                        sendBtn.style.background = 'var(--c-coral)';
+                        sendBtn.disabled = false;
+                    }
+                });
+
+                wrapper.appendChild(textarea);
+                wrapper.appendChild(sendBtn);
+                optsContainer.appendChild(wrapper);
+            }
+            
+            // Add Global Back Button if not start
+            if (stepId !== 'start') {
+                const backBtn = document.createElement('button');
+                backBtn.className = 'chat-option-btn';
+                backBtn.style.borderStyle = 'dashed';
+                backBtn.style.opacity = '0.7';
+                backBtn.style.marginTop = 'auto';
+                backBtn.textContent = '🔙 Corregir / Volver';
+                backBtn.addEventListener('click', () => {
+                    const prevStep = taskiiHistory.pop() || 'start';
+                    taskiiPathText.pop();
+                    renderTaskiiStep(prevStep, '🔙 Volver', true);
+                });
+                optsContainer.appendChild(backBtn);
+            }
+            
+            msgsContainer.scrollTop = msgsContainer.scrollHeight;
+        }, 1200);
+    }, userText ? 600 : 0);
+}
+
+// ============================================
+// BIOS BOOT SEQUENCE
+// ============================================
+function initBootSequence() {
+    const biosDiv = document.getElementById('bios-boot');
+    const content = document.getElementById('bios-content');
+    
+    // Check if session storage has 'booted' flag so it doesn't run every refresh
+    if (!biosDiv || !content || sessionStorage.getItem('hasBooted')) {
+        if(biosDiv) biosDiv.remove();
+        return;
+    }
+
+    // Set flag
+    sessionStorage.setItem('hasBooted', 'true');
+    
+    const biosLines = [
+        "ANTON BIOS Date 06/21/26 18:30:22 Ver 08.00.15",
+        "CPU: ANTON Neural Net Processor @ 3.20GHz",
+        "Speed: 3.20 GHz",
+        "",
+        "Initializing USB Controllers .. Done.",
+        "262144MB RAM OK",
+        "",
+        "Auto-Detecting Pri Master .. NVMe SSD",
+        "Pri Master: 3.14.15 ANTON-OS_DRIVE_0",
+        "",
+        "Loading Anton_OS kernel...",
+        "Mounting secure file systems... [ OK ]",
+        "Starting interface daemons... [ OK ]",
+        "Establishing secure connection... [ OK ]",
+        "",
+        "System ready. Welcome to the portal."
+    ];
+
+    let delay = 0;
+    biosLines.forEach((line, index) => {
+        setTimeout(() => {
+            content.textContent += line + "\n";
+            biosDiv.scrollTop = biosDiv.scrollHeight;
+        }, delay);
+        // Random typing/loading delay for each line
+        delay += Math.random() * 80 + 30; 
+        
+        // Add a fake pause at "Loading Anton_OS kernel..."
+        if(index === 10) delay += 400;
+    });
+
+    // Remove the overlay after everything prints + a short pause
+    setTimeout(() => {
+        biosDiv.classList.add('hidden');
+        setTimeout(() => biosDiv.remove(), 800); // Wait for CSS transition to finish
+    }, delay + 600);
 }
